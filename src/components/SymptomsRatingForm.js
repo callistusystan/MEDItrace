@@ -5,9 +5,7 @@ import { MyRater } from './MyRater';
 import { FormContent } from './FormContent';
 
 import {   
-  Button,
   withStyles,
-  Typography
 } from '@material-ui/core';
 
 const RatingControl = ({ id, children, onRate, ...other }) => (

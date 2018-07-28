@@ -12,34 +12,38 @@ export const SymptomsExtraForm = withStyles({
   constructor() {
     super();
     this.state = {
-      notes: '',
-      imagePath: null
+      note: '',
+      imgFiles: []
     }    
   }
 
   onNotesChange = (e) => {
     this.setState({
-      notes: e.target.value
+      note: e.target.value
     });
   }
 
-  onNext = (state) => {
-    this.props.onNext(state);
+  onNext = () => {
+    console.log('rawr');
+    console.log(this.state);
+    this.props.onNext(this.state);
   }
 
-  onImagePathChange = (e) => {
-    for(const file of e.target.files) {
-      uploadImage(file);
-    }
+  onImagePathChange = async (e) => {
+    this.setState({
+      imgFiles: e.target.files
+    });
   }
 
   render() {
     return (
       <form>
         <FormContent title="Extras">        
-          <input type="file" name="pic" accept="image/*" onChange={this.onImagePathChange}/>
+          <input 
+            type="file"
+             name="pic" accept="image/*" onChange={this.onImagePathChange}/>
           <FormControl margin="dense">
-            <InputLabel htmlFor="notes" onChange={this.onImagePathChange}>Notes</InputLabel>
+            <InputLabel htmlFor="notes">Notes</InputLabel>
             <Input
               id="notes"
               onChange={this.onNotesChange}
@@ -48,7 +52,7 @@ export const SymptomsExtraForm = withStyles({
               rows={5}
             />
           </FormControl>
-          <SymptomsBottomSection nextButtonText={'Submit'} onNext={this.props.onNext}/>
+          <SymptomsBottomSection nextButtonText={'Submit'} onNext={this.onNext}/>
         </FormContent>
       </form>
     )

@@ -6,13 +6,10 @@ import { withStyles, Button } from '@material-ui/core';
 export const SymptomsBottomSection = withStyles({
   bottomSection: {
     display: 'flex',
-    flexDirection: 'row'
+    justifyContent: 'flex-end'
   },
-  nextButton: {
-    alignSelf: 'flex-end'
-  }
 })(({ nextButtonText = 'Next', classes, onNext }) => (
   <div className={classes.bottomSection}>
-    <Button className={classes.nextButton} onClick={onNext}>{nextButtonText}</Button>
+    <Button onClick={onNext}>{nextButtonText}</Button>
   </div>
 ));

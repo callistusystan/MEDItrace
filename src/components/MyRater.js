@@ -106,9 +106,9 @@ export class MyRater extends Component {
     return (
       <div>
         <Rater total={3}>
-          <Angry />
-          <Normal />
           <Smile />
+          <Normal />
+          <Angry />
         </Rater>
       </div>
     )

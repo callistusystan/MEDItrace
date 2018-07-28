@@ -14,7 +14,7 @@ class Root extends Component {
             authDomain: "mediocre-unihack.firebaseapp.com",
             databaseURL: "https://mediocre-unihack.firebaseio.com",
             projectId: "mediocre-unihack",
-            storageBucket: "",
+            storageBucket: "gs://mediocre-unihack.appspot.com",
             messagingSenderId: "521158343926"
         };
         firebase.initializeApp(config);
