@@ -45,7 +45,6 @@ class HomePage extends Component {
         return (
             <div style={styles.container}>
                 <TopBar />
-                <Camera />
                 {this.state.ready ? this.renderBody() : this.renderLoading()}
                 <DeviceBar
                     title='Bottom Bar'
@@ -54,7 +53,7 @@ class HomePage extends Component {
                         color: '#555'
                     }}
                     style={{
-                        borderColor: '#DDD'
+                        borderColor: '#EEE'
                     }}
                 />
             </div>
@@ -68,7 +67,7 @@ const styles = {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#EEE'
+        backgroundColor: '#FFF'
     }
 };
 

@@ -5,6 +5,7 @@ import LoadingView from '../components/react-mobile-hackathon/devices/LoadingVie
 import { PulseLoader } from 'react-spinners';
 import { Fade } from '@material-ui/core';
 import TopBar from '../components/TopBar';
+import Anatomy from "../components/anatomy/Anatomy"
 
 class BodyPage extends Component {
 
@@ -27,12 +28,11 @@ class BodyPage extends Component {
     renderBody = () => {
         return (
             <ScrollView style={{ padding: '4px 8px' }}>
-                <div style={{ height: '200%', display: 'flex', flexDirection: 'column' }}>
+                <div style={{ height: 'auto', display: 'flex', flexDirection: 'column' }}>
                     <Fade in={200}>
                         <h2 style={{ color: '#555' }}>David's Sexy Body Page</h2>
                     </Fade>
-                    <div style={{ flex: 1 }} />
-                    <h2 style={{ color: '#555' }}>You've reached the end!</h2>
+                    <Anatomy/>
                 </div>
             </ScrollView>
         );
@@ -50,7 +50,7 @@ class BodyPage extends Component {
                         color: '#555'
                     }}
                     style={{
-                        borderColor: '#DDD'
+                        borderColor: '#EEE'
                     }}
                 />
             </div>
@@ -64,7 +64,7 @@ const styles = {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#EEE'
+        backgroundColor: '#FFF'
     }
 };
 
