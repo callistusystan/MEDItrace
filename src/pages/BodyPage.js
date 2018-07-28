@@ -29,12 +29,12 @@ class BodyPage extends Component {
     renderBody = () => {
         console.log(this.props.history);
         return (
-            <ScrollView style={{ padding: '4px 8px' }}>
+            <ScrollView>
                 <div style={{ height: 'auto', display: 'flex', flexDirection: 'column' }}>
                     <Fade in={200}>
-                        <h2 style={{ color: '#555' }}>Record New Symptom</h2>
+                        <h2 style={{ marginTop: 8, fontWeight: 300, letterSpacing: 0.3 }}>Record New Symptom</h2>
                     </Fade>
-                    <Anatomy history={this.props.history} clickable style={{ marginTop: 16 }} />
+                    <Anatomy history={this.props.history} clickable />
                 </div>
             </ScrollView>
         );
