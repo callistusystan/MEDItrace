@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import CameraButton from '../images/iphone-camera-button.png';
 
-export class Camera extends Component { 
+import { TakePictureIcon } from './TakePictureIcon';
+
+import { withStyles } from '@material-ui/core';
+
+class Camera extends Component { 
   constructor() {
     super();
     this.state = {
@@ -14,6 +17,7 @@ export class Camera extends Component {
       const stream = await navigator.mediaDevices.getUserMedia({
         video: true
       });
+      console.debug('Obtained video capture permissions :D');
       this.handleCaptureSuccess(stream);
     } catch(error) {
       this.handleCaptureError(error);
@@ -29,7 +33,7 @@ export class Camera extends Component {
 
 
   handleCaptureError = (error) => {
-    console.error(error);
+    console.error('Failed to obtain video capture permissions', error);
   }
 
   componentDidMount() {    
@@ -60,17 +64,46 @@ export class Camera extends Component {
 
   render() {
     return (
-      <div>
-        <video autoPlay style={{ transform: 'scaleX(-1)' }} ref={this.setCaptureVideoRef}></video>
-        <canvas style={{display: 'none'}} ref={this.setCanvasRef}></canvas>
-        <button 
-
-          ref={this.setTakePicButtonRef}
-          disabled={this.state.captureIsReady}
-          onClick={this.takePicture}>
-          Take Pic
-        </button>
+      <div className={this.props.classes.container}>
+        <canvas style={{display: 'none'}} ref={this.setCanvasRef}/>
+        <video 
+          autoPlay 
+          style={{ transform: 'scaleX(-1)', background: 'rgb(0,0,0)' }} 
+          ref={this.setCaptureVideoRef}/>
+        <div className={this.props.classes.bottomBar}>
+          <button 
+            className={this.props.classes.takePicButton}
+            width={128}
+            height={128}
+            ref={this.setTakePicButtonRef}
+            disabled={this.state.captureIsReady}
+            onClick={this.takePicture}
+            >
+            <TakePictureIcon disabled={this.state.captureIsReady}/>
+          </button>
+        </div>
       </div>
     );
   }
 }
+
+const StyledCamera = withStyles({
+  bottomBar: {
+    alignSelf: 'flex-end',
+    width: '100%',
+    height: '128px',
+    display: 'flex'
+  },
+  container: {
+    position: 'relative',
+    display: 'flex',
+    width: '100%',
+    paddingTop: '56.25%',
+    flexDirection: 'column'
+  },
+  takePicButton: {
+    alginSelf: 'center'
+  }
+})(Camera);
+
+export { StyledCamera as Camera };
