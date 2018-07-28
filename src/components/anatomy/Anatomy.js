@@ -55,22 +55,22 @@ class Anatomy extends React.Component {
     }
 
     addPainspot = (x, y, layer) => {
-        const currentDate = new Date().getMinutes()
+        const currentDate = new Date().getMinutes();
         this.setState({
             ...this.state,
             painSpots: {
                 ...this.state.painSpots,
-                Jul: [ ...this.state.painSpots.Jul, { x, y, layer, currentDate } ],
+                Jul: [ ...this.state.painSpots.Jul, { x: x, y: y, layer, currentDate } ],
             }
         });
 
-        setTimeout(() => {
-            console.log(this.props.history);
-            this.props.history.push({
-                pathname: '/symptoms',
-                state: { x, y, layer }
-            })
-        }, 1000)
+        // setTimeout(() => {
+        //     console.log(this.props.history);
+        //     this.props.history.push({
+        //         pathname: '/symptoms',
+        //         state: { x, y, layer }
+        //     })
+        // }, 1000)
     };
 
     componentDidMount(){
