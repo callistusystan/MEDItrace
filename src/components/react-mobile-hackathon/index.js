@@ -37,7 +37,7 @@ class MobileHackathon extends Component {
                     }}
                 >
                     <Logo mediStyle={{ fontSize: 40 }} traceStyle={{ fontSize: 40 }} style={{ margin: undefined }} />
-                    <p style={{ fontSize: 28, color: '#555' }}>Try it out!</p>
+                    <p style={{ fontSize: 28, color: '#555', marginTop: 8 }}>Try it out!</p>
                     <QRCode
                         bgColor="#FFFFFF"
                         fgColor="#000000"

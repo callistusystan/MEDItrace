@@ -83,73 +83,76 @@ class Anatomy extends React.Component {
                 }}
             >
                 <canvas ref={canvas=>this.canvas = canvas} width={217} height={580} style={{display:"none"}}/>
-                <Slider
-                    dots
-                    vertical
-                    min={1}
-                    max={8}
-                    default={8}
-                    style={{
-                        position: "absolute",
-                        top: this.props.timelime? 120 : 147,
-                        right: 10,
-                        height: 200
-                    }}
-                    onChange={layer => {
-                        this.setState({layer: layer})
-                    }}
-
-                />
                 <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <h3>{layerNames[this.state.layer - 1]}</h3>
                     {this.props.timeline}
                 </div>
-                <div style={{width: 217, height: 580, position: "relative", display: "flex", justifyContent: "center", marginTop: 8 }}
-                     onClick={this.props.clickable && this.handleAddPainspot} onDoubleClick={e => e.preventDefault()}>
+                <div style={{ width: '100%', position: 'relative', display: 'flex', justifyContent: 'center' }}>
+
+                    <Slider
+                        dots
+                        vertical
+                        min={1}
+                        max={8}
+                        default={8}
+                        style={{
+                            position: "absolute",
+                            top: 100,
+                            right: 10,
+                            height: 200
+                        }}
+                        onChange={layer => {
+                            this.setState({layer: layer})
+                        }}
+
+                    />
+                    <div style={{width: 217, height: 580, position: "relative", display: "flex", justifyContent: "center", marginTop: 8 }}
+                         onClick={this.props.clickable && this.handleAddPainspot} onDoubleClick={e => e.preventDefault()}>
 
 
-                    {this.state.layer < 8 &&
-                    <img onDoubleClick={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
-                         style={{width: 217, height: 580, userSelect: 'none'}} src={layers[this.state.layer - 1]}
-                         alt=""/>}
-                    {this.state.layer === 8 &&
-                    <div style={{width: 217, height: 580, position: "relative"}}>
-                        {layers.map((layer, i) => {
+                        {this.state.layer < 8 &&
+                        <img onDoubleClick={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
+                             style={{width: 217, height: 580, userSelect: 'none'}} src={layers[this.state.layer - 1]}
+                             alt=""/>}
+                        {this.state.layer === 8 &&
+                        <div style={{width: 217, height: 580, position: "relative"}}>
+                            {layers.map((layer, i) => {
+                                return (
+                                    <img
+                                        key={i}
+                                        onDragStart={e => e.preventDefault()}
+                                        onDoubleClick={e => e.preventDefault()}
+                                        src={layer} style={{
+                                        width: 217,
+                                        height: 580,
+                                        position: "absolute",
+                                        opacity: 1 / 2,
+                                        top: 0,
+                                        right: 0,
+                                        userSelect: 'none'
+                                    }} alt=""/>
+                                )
+                            })}
+                        </div>}
+                        {this.state.painSpots.map(painSpot => {
+                            const {x, y, layer} = painSpot
+                            if (layer !== this.state.layer && this.state.layer !== 8) {
+                                return null
+                            }
                             return (
-                                <img
-                                    key={i}
-                                    onDragStart={e => e.preventDefault()}
-                                    onDoubleClick={e => e.preventDefault()}
-                                    src={layer} style={{
-                                    width: 217,
-                                    height: 580,
-                                    position: "absolute",
-                                    opacity: 1 / 2,
-                                    top: 0,
-                                    right: 0,
-                                    userSelect: 'none'
-                                }} alt=""/>
+                                <PainSpot
+                                    key={`${x}${y}${layer}`}
+                                    style={{position: "absolute", top: y, left: x,zIndex:1}}
+                                    onClick={e=>{
+                                        console.log(e)
+                                        e.stopPropagation()
+
+                                    }}
+                                />
                             )
                         })}
-                    </div>}
-                    {this.state.painSpots.map(painSpot => {
-                        const {x, y, layer} = painSpot
-                        if (layer !== this.state.layer && this.state.layer !== 8) {
-                            return null
-                        }
-                        return (
-                            <PainSpot
-                                key={`${x}${y}${layer}`}
-                                style={{position: "absolute", top: y, left: x,zIndex:1}}
-                                onClick={e=>{
-                                    console.log(e)
-                                    e.stopPropagation()
 
-                                }}
-                            />
-                        )
-                    })}
-
+                    </div>
                 </div>
             </div>
 

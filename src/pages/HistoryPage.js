@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import DeviceBar from '../components/react-mobile-hackathon/devices/DeviceBar';
 import ScrollView from '../components/react-mobile-hackathon/devices/ScrollView';
 import LoadingView from '../components/react-mobile-hackathon/devices/LoadingView';
 import { PulseLoader } from 'react-spinners';
@@ -49,7 +48,7 @@ class HistoryPage extends Component {
                     max={6}
                     default={0}
                     tipFormatter={i => marks[i]}
-                    style={{ width: 200 }} />
+                    style={{ minWidth: 180, width: 180 }} />
         );
     };
 
