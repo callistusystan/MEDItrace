@@ -57,7 +57,15 @@ class Anatomy extends React.Component {
                 ...this.state.painSpots,
                 Jul: [ ...this.state.painSpots.Jul, { x, y, layer, currentDate } ],
             }
-        })
+        });
+
+        setTimeout(() => {
+            console.log(this.props.history);
+            this.props.history.push({
+                pathname: '/symptoms',
+                state: { x, y, layer }
+            })
+        }, 1000)
     };
 
     componentDidMount(){
