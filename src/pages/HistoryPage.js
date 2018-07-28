@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import firebase from 'firebase';
 import ScrollView from '../components/react-mobile-hackathon/devices/ScrollView';
 import LoadingView from '../components/react-mobile-hackathon/devices/LoadingView';
 import { PulseLoader } from 'react-spinners';
@@ -15,44 +16,27 @@ const marks = {
     3: 'Jul'
 };
 
-const painSpots = {
-    Apr: [
-        {x: 28.015625, y: 182.5, layer: 1, note: 'Rash'},
-        {x: 161.015625, y: 195.5, layer: 1, note: 'Rash'},
-        {x: 44.015625, y: 97.5, layer: 2, note: 'Shoulder ache'},
-        {x: 106.015625, y: 0.5, layer: 7, note: 'Headache'},
-        {x: 74.015625, y: 7.5, layer: 7, note: 'Headache'}
-    ],
-    May: [
-        {x: 13.015625, y: 189.5, layer: 1, note: 'Rash'},
-        {x: 158.015625, y: 180.5, layer: 1, note: 'Rash'},
-        {x: 136.015625, y: 440.5, layer: 2, note: 'Leg cramp'},
-        {x: 156.015625, y: 154.5, layer: 2, note: 'Leg cramp'},
-        {x: 96.015625, y: -1.5, layer: 7, note: 'Headache'}
-    ],
-    Jun: [
-        {x: 83.015625, y: 13.5, layer: 7, note: 'Headache'},
-        {x: 155.015625, y: 155.5, layer: 2, note: 'Leg cramp'}
-    ],
-    Jul: [
-        {x: 13.015625, y: 189.5, layer: 1, note: 'Rash'},
-        {x: 158.015625, y: 180.5, layer: 1, note: 'Rash'},
-        {x: 106.015625, y: 15.5, layer: 7, note: 'Headache'},
-        {x: 106.015625, y: 0.5, layer: 7, note: 'Headache'},
-        {x: 57.015625, y: 441.5, layer: 2, note: 'Leg cramp'},
-        {x: 156.015625, y: 154.5, layer: 2, note: 'Leg cramp'},
-    ]
-};
-
 class HistoryPage extends Component {
 
-    state = {
-        ready: false,
-        month: 'Apr'
-    };
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            ready: false,
+            month: 'Apr',
+            painSpots: { Jul: [] }
+        };
+    }
+
 
     componentDidMount() {
         setTimeout(() => this.setState({ ready: true }), 20);
+
+        firebase.database().ref().on('value', ss => {
+            console.log('ss', ss.val());
+            const { painSpots } = ss.val();
+            this.setState({ painSpots });
+        });
     }
 
     renderLoading = () => {
@@ -79,13 +63,14 @@ class HistoryPage extends Component {
     };
 
     renderBody = () => {
+        console.log(this.state.painSpots);
         return (
             <ScrollView>
                 <div style={{ height: 'auto', display: 'flex', flexDirection: 'column' }}>
                     <Fade in={200}>
                         <h2 style={{ color: '#555' }}>Health History</h2>
                     </Fade>
-                    <Anatomy month={this.state.month} painSpots={painSpots} timeline={this.renderTimeline()} />
+                    <Anatomy month={this.state.month} painSpots={this.state.painSpots} timeline={this.renderTimeline()} />
                 </div>
             </ScrollView>
         );
