@@ -91,20 +91,13 @@ class Anatomy extends React.Component {
                     onChange={layer => {
                         this.setState({layer: layer})
                     }}
+
                 />
                 <h1>{layerNames[this.state.layer - 1]}</h1>
                 <div style={{width: 217, height: 580, position: "relative", display: "flex", justifyContent: "center"}}
                      onClick={this.handleAddPainspot} onDoubleClick={e => e.preventDefault()}>
 
-                    {this.state.painSpots.map(painSpot => {
-                        const {x, y, layer} = painSpot
-                        if (layer !== this.state.layer && this.state.layer !== 8) {
-                            return null
-                        }
-                        return (
-                            <PainSpot key={`${x}${y}${layer}`} style={{position: "absolute", top: y, left: x}}/>
-                        )
-                    })}
+
                     {this.state.layer < 8 &&
                     <img onDoubleClick={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
                          style={{width: 217, height: 580, userSelect: 'none'}} src={layers[this.state.layer - 1]}
@@ -129,6 +122,15 @@ class Anatomy extends React.Component {
                             )
                         })}
                     </div>}
+                    {this.state.painSpots.map(painSpot => {
+                        const {x, y, layer} = painSpot
+                        if (layer !== this.state.layer && this.state.layer !== 8) {
+                            return null
+                        }
+                        return (
+                            <PainSpot key={`${x}${y}${layer}`} style={{position: "absolute", top: y, left: x,zIndex:1}}/>
+                        )
+                    })}
 
                 </div>
             </div>

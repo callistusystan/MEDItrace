@@ -4,7 +4,6 @@
     <list default="true" id="5cea0952-4d4a-4d24-8f55-0f2ed307acf6" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/components/anatomy/Anatomy.js" afterPath="$PROJECT_DIR$/src/components/anatomy/Anatomy.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/anatomy/PainSpot.js" afterPath="$PROJECT_DIR$/src/components/anatomy/PainSpot.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -68,8 +67,8 @@
       <file leaf-file-name="Anatomy.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/anatomy/Anatomy.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="39" column="97" lean-forward="false" selection-start-line="39" selection-start-column="97" selection-end-line="39" selection-end-column="97" />
+            <state relative-caret-position="810">
+              <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
               <folding>
                 <element signature="e#0#25#0" expanded="true" />
               </folding>
@@ -270,7 +269,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9333000" />
+    <option name="totallyTimeSpent" value="10130000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -395,8 +394,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/anatomy/Anatomy.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="39" column="97" lean-forward="false" selection-start-line="39" selection-start-column="97" selection-end-line="39" selection-end-column="97" />
+        <state relative-caret-position="810">
+          <caret line="54" column="5" lean-forward="true" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
           </folding>
