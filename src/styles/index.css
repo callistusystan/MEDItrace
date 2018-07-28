@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700');
 
 * {
     margin: 0;
     padding: 0;
     font-family: 'Open Sans', sans-serif;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 
 @media only screen and (min-width: 600px) {
@@ -18,7 +18,7 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background: linear-gradient(140deg, #f39c12, #9b59b6, #f39c12);
+        background: linear-gradient(140deg, #f7f6ff, #ff5b5b, #ecf1f3);
         background-size: 400% 400%;
         -webkit-animation: Gradient 15s ease-in-out infinite;
         -moz-animation: Gradient 15s ease-in-out infinite;
