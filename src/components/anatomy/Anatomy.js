@@ -11,35 +11,51 @@ import PainSpot from './PainSpot'
 
 const layers = [layer0, layer1, layer2, layer3, layer4, layer5, layer6]
 const layerNames = ['Skin', 'Muscles', 'Bones', 'Lungs', 'Stomach', 'Heart & Arteries', 'Nerves', 'All']
-
-function getOffset(el) {
-    const rect = el.getBoundingClientRect();
-    return rect
+const arrayAllZero = array => {
+    for(let i = 0; i < array.length; i ++){
+        if(array[i]!==0){
+            return false
+        }
+    }
+    return true
 }
-
 class Anatomy extends React.Component {
 
     state = {
         layer: 1,
-        painSpots: []
+        painSpots: [],
     }
 
     handleAddPainspot = e => {
+        e.preventDefault()
+        const ctx = this.canvas.getContext("2d");
         const mouseX = e.clientX
         const mouseY = e.clientY
         const el = e.target
         const {x, y} = el.getBoundingClientRect();
-        const displacementX = mouseX - x - 15
-        const displacementY = mouseY - y - 15
-        this.addPainspot(displacementX,displacementY,this.state.layer)
-
+        const displacementX = mouseX - x
+        const displacementY = mouseY - y
+        const pixels = Array.from(ctx.getImageData(displacementX-15,displacementY-15,15,15).data)
+        if(!arrayAllZero(pixels)) {
+            this.addPainspot(displacementX - 15, displacementY - 15, this.state.layer)
+        }
     }
 
     addPainspot = (x, y, layer) => {
         this.setState({
-            ...this.state, painSpots:[...this.state.painSpots,{x,y,layer}]
+            ...this.state,
+            painSpots: [...this.state.painSpots, {x, y, layer}],
 
         })
+    }
+
+    componentDidMount(){
+        const img = new Image();
+        const ctx = this.canvas.getContext("2d");
+        img.onload = () => {
+            ctx.drawImage(img,0,0)
+        };
+        img.src = layer0
     }
 
     render() {
@@ -54,9 +70,10 @@ class Anatomy extends React.Component {
                     alignItems: "center",
                     flexDirection: "column",
                     fontFamily: "GlacialIndifference",
-                    position:"relative"
+                    position: "relative"
                 }}
             >
+                <canvas ref={canvas=>this.canvas = canvas} height={580} width={217} style={{display:"none"}}/>
                 <Slider
                     dots
                     vertical
@@ -75,30 +92,37 @@ class Anatomy extends React.Component {
                 />
                 <h1>{layerNames[this.state.layer - 1]}</h1>
                 <div style={{width: 217, height: 580, position: "relative", display: "flex", justifyContent: "center"}}
-                     onClick={this.handleAddPainspot}>
+                     onClick={this.handleAddPainspot} onDoubleClick={e => e.preventDefault()}>
 
-                    {this.state.painSpots.map(painSpot=>{
-                        const {x,y,layer} = painSpot
-                        if(layer!==this.state.layer){
+                    {this.state.painSpots.map(painSpot => {
+                        const {x, y, layer} = painSpot
+                        if (layer !== this.state.layer && this.state.layer !== 8) {
                             return null
                         }
                         return (
-                            <PainSpot style={{position:"absolute",top:y,left:x}}/>
+                            <PainSpot key={`${x}${y}${layer}`} style={{position: "absolute", top: y, left: x}}/>
                         )
                     })}
                     {this.state.layer < 8 &&
-                    <img style={{width: 217, height: 580}} src={layers[this.state.layer - 1]} alt=""/>}
+                    <img onDoubleClick={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
+                         style={{width: 217, height: 580, userSelect: 'none'}} src={layers[this.state.layer - 1]}
+                         alt=""/>}
                     {this.state.layer === 8 &&
                     <div style={{width: 217, height: 580, position: "relative"}}>
-                        {layers.map(layer => {
+                        {layers.map((layer, i) => {
                             return (
-                                <img src={layer} style={{
+                                <img
+                                    key={i}
+                                    onDragStart={e => e.preventDefault()}
+                                    onDoubleClick={e => e.preventDefault()}
+                                    src={layer} style={{
                                     width: 217,
                                     height: 580,
                                     position: "absolute",
                                     opacity: 1 / 2,
                                     top: 0,
-                                    right: 0
+                                    right: 0,
+                                    userSelect: 'none'
                                 }} alt=""/>
                             )
                         })}
