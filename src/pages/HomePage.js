@@ -3,7 +3,7 @@ import DeviceBar from '../components/react-mobile-hackathon/devices/DeviceBar';
 import ScrollView from '../components/react-mobile-hackathon/devices/ScrollView';
 import LoadingView from '../components/react-mobile-hackathon/devices/LoadingView';
 import { GridLoader } from 'react-spinners';
-import Background from '../images/background.jpg';
+import HeartBeat from '../images/heartbeat.png';
 
 class HomePage extends Component {
 
@@ -18,18 +18,18 @@ class HomePage extends Component {
     renderLoading = () => {
         return (
             <LoadingView>
-                <GridLoader color='#ffb432' loading={!this.state.ready} />
+                <GridLoader color='rgb(255, 91, 91)' loading={!this.state.ready} />
             </LoadingView>
         );
     };
 
     renderBody = () => {
         return (
-            <ScrollView isDark>
+            <ScrollView style={{ padding: '4px 8px' }}>
                 <div style={{ height: '200%', display: 'flex', flexDirection: 'column' }}>
-                    <h1 style={{ color: 'rgb(250, 250, 255)' }}>React App</h1>
+                    <h2 style={{ color: '#555' }}>Welcome back, David</h2>
                     <div style={{ flex: 1 }} />
-                    <h2 style={{ color: 'rgb(250, 250, 255)' }}>You've reached the end!</h2>
+                    <h2 style={{ color: '#555' }}>You've reached the end!</h2>
                 </div>
             </ScrollView>
         );
@@ -39,15 +39,18 @@ class HomePage extends Component {
         return (
             <div style={styles.container}>
                 <DeviceBar
-                    title='React App'
+                    title='MEDIocre'
+                    logoComponent={
+                        <img src={HeartBeat} style={{ position: 'absolute', width: 48, height: 48 }} />
+                    }
                     position='top'
                     noBorder
                     isAppBar
                     titleStyle={{
-                        color: 'rgb(250, 250, 255)'
+                        color: '#555'
                     }}
                     style={{
-                        borderColor: 'rgba(255, 255, 255, .2)'
+                        borderColor: '#DDD'
                     }}
                 />
                 {this.state.ready ? this.renderBody() : this.renderLoading()}
@@ -55,10 +58,10 @@ class HomePage extends Component {
                     title='Bottom Bar'
                     position='bottom'
                     titleStyle={{
-                        color: 'rgb(250, 250, 255)'
+                        color: '#555'
                     }}
                     style={{
-                        borderColor: 'rgba(255, 255, 255, .2)'
+                        borderColor: '#DDD'
                     }}
                 />
             </div>
@@ -72,10 +75,7 @@ const styles = {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        backgroundImage: `url(${Background})`,
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
+        backgroundColor: '#EEE'
     }
 };
 

@@ -35,7 +35,7 @@ class MobileHackathon extends Component {
                         padding: 16
                     }}
                 >
-                    <h1 style={{ fontSize: 40 }}>{this.props.appName || 'React App'}</h1>
+                    <h1 style={{ fontSize: 40 }}>MEDIocre</h1>
                     <p style={{ fontSize: 28, color: '#555' }}>Try it out!</p>
                     <QRCode
                         bgColor="#FFFFFF"
