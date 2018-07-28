@@ -11,12 +11,12 @@ class Logo extends Component {
                     padding: '2px 4px',
                     color: '#FFF', ...this.props.mediStyle
                 }}>MEDI</span>
-                <p style={{
+                <span style={{
                     fontSize: 24,
                     padding: 2,
                     letterSpacing: 2,
                     textDecoration: 'underline', ...this.props.ocreStyle
-                }}>ocre</p>
+                }}>ocre</span>
             </div>
         );
     }
