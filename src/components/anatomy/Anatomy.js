@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React from "react"
 import layer0 from "../../images/layer_0.png"
 import layer1 from "../../images/layer_1.png"
@@ -61,7 +62,15 @@ class Anatomy extends React.Component {
                 ...this.state.painSpots,
                 Jul: [ ...this.state.painSpots.Jul, { x, y, layer, currentDate } ],
             }
-        })
+        });
+
+        setTimeout(() => {
+            console.log(this.props.history);
+            this.props.history.push({
+                pathname: '/symptoms',
+                state: { x, y, layer }
+            })
+        }, 1000)
     };
 
     componentDidMount(){
@@ -73,6 +82,12 @@ class Anatomy extends React.Component {
             ctx.drawImage(img, 0, 0, img.width,    img.height)
         };
 
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.painSpots !== this.state.painSpots) {
+            this.setState({ painSpots: nextProps.painSpots });
+        }
     }
 
     render() {
@@ -143,7 +158,7 @@ class Anatomy extends React.Component {
                                 )
                             })}
                         </div>}
-                        {this.state.painSpots[this.props.month || MONTH].map(painSpot => {
+                        {_.map(this.state.painSpots[this.props.month || MONTH], painSpot => {
                             const {x, y, layer} = painSpot
                             if (layer !== this.state.layer && this.state.layer !== 8) {
                                 return null
