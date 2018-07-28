@@ -40,10 +40,7 @@ export const SymptomsExtraForm = withStyles({
   render() {
     return (
       <form>
-        <FormContent title="Extras">        
-          <input 
-            type="file"
-             name="pic" accept="image/*" onChange={this.onImagePathChange}/>
+        <FormContent title="Extras">
           <FormControl margin="dense">
             <InputLabel htmlFor="notes">Notes</InputLabel>
             <Input
@@ -54,6 +51,9 @@ export const SymptomsExtraForm = withStyles({
               rows={5}
             />
           </FormControl>
+          <input 
+            type="file"
+             name="pic" accept="image/*" onChange={this.onImagePathChange}/>
           <SymptomsBottomSection nextButtonText={'Submit'} onNext={this.onNext}/>
         </FormContent>
       </form>
