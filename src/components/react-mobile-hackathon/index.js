@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import IPhoneX from './devices/IPhoneX';
-import { QRCode } from 'react-qr-svg';
+import QRCode from "../../images/qr-code.png"
+import Logo from '../Logo';
 
 let is_safari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 let is_chrome = /Chrome|CriOS/.test(navigator.userAgent);
@@ -35,20 +36,12 @@ class MobileHackathon extends Component {
                         padding: 16
                     }}
                 >
-                    <h1 style={{ fontSize: 40 }}>MEDIocre</h1>
-                    <p style={{ fontSize: 28, color: '#555' }}>Try it out!</p>
-                    <QRCode
-                        bgColor="#FFFFFF"
-                        fgColor="#000000"
-                        level="Q"
-                        style={{
-                            marginTop: 16,
-                            width: 256,
-                            alignSelf: 'center'
-                        }}
-                        value={this.props.url || 'http://localhost:3000/'}
-                    />
-                    <a href={this.props.url || 'http://localhost:3000/'} style={{ fontSize: 24, letterSpacing: 2, color: '#007BFF', marginTop: 16, alignSelf: 'center' }}>{this.props.displayUrl || 'react-app.com'}</a>
+                    <Logo mediStyle={{ fontSize: 40 }} traceStyle={{ fontSize: 40 }} style={{ margin: undefined }} />
+                    <p style={{ fontSize: 28, color: '#555', marginTop: 8 }}>Try it out!</p>
+                    <div style={{display:"flex",justifyContent:"center"}}>
+                        <div><img src={QRCode} style={{width:400,height:400}}/></div>
+                    </div>
+                    <a href={this.props.url || 'http://localhost:3000/'} style={{ fontSize: 18, letterSpacing: 2, color: '#007BFF', marginTop: 8, alignSelf: 'center' }}>{this.props.displayUrl || 'mediocre-unihack.firebaseapp.com'}</a>
                 </div>
             </div>
         );

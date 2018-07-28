@@ -15,7 +15,7 @@ class BodyPage extends Component {
     };
 
     componentDidMount() {
-        setTimeout(() => this.setState({ ready: true }), 500);
+        setTimeout(() => this.setState({ ready: true }), 20);
     }
 
     renderLoading = () => {
@@ -27,13 +27,14 @@ class BodyPage extends Component {
     };
 
     renderBody = () => {
+        console.log(this.props.history);
         return (
-            <ScrollView style={{ padding: '4px 8px' }}>
+            <ScrollView>
                 <div style={{ height: 'auto', display: 'flex', flexDirection: 'column' }}>
                     <Fade in={200}>
-                        <h2 style={{ color: '#555' }}>David's Sexy Body Page</h2>
+                        <h2 style={{ marginTop: 8, fontWeight: 300, letterSpacing: 0.3 }}>Record New Symptom</h2>
                     </Fade>
-                    <Anatomy/>
+                    <Anatomy history={this.props.history} clickable />
                 </div>
             </ScrollView>
         );
