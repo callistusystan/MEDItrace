@@ -22,6 +22,10 @@ const arrayAllZero = array => {
 
 const MONTH = 'Jul';
 
+const bodyHeight = window.innerHeight * 0.55
+const bodyWidth = 217/580 * bodyHeight
+
+
 class Anatomy extends React.Component {
 
     constructor(props) {
@@ -61,7 +65,7 @@ class Anatomy extends React.Component {
     };
 
     componentDidMount(){
-        const img = new Image(217,580);
+        const img = new Image(bodyWidth,bodyHeight);
         const canvas = this.canvas
         const ctx = canvas.getContext("2d");
         img.src = layer0
@@ -87,7 +91,7 @@ class Anatomy extends React.Component {
                     ...this.props.style
                 }}
             >
-                <canvas ref={canvas=>this.canvas = canvas} width={217} height={580} style={{display:"none"}}/>
+                <canvas ref={canvas=>this.canvas = canvas} width={bodyWidth} height={bodyHeight} style={{display:"none"}}/>
                 <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                     <h3>{layerNames[this.state.layer - 1]}</h3>
                     {this.props.timeline}
@@ -111,16 +115,16 @@ class Anatomy extends React.Component {
                         }}
 
                     />
-                    <div style={{width: 217, height: 580, position: "relative", display: "flex", justifyContent: "center", marginTop: 8 }}
+                    <div style={{width: bodyWidth, height: bodyHeight, position: "relative", display: "flex", justifyContent: "center", marginTop: 8 }}
                          onClick={this.props.clickable && this.handleAddPainspot} onDoubleClick={e => e.preventDefault()}>
 
 
                         {this.state.layer < 8 &&
                         <img onDoubleClick={e => e.preventDefault()} onDragStart={e => e.preventDefault()}
-                             style={{width: 217, height: 580, userSelect: 'none'}} src={layers[this.state.layer - 1]}
+                             style={{width: bodyWidth, height: bodyHeight, userSelect: 'none'}} src={layers[this.state.layer - 1]}
                              alt=""/>}
                         {this.state.layer === 8 &&
-                        <div style={{width: 217, height: 580, position: "relative"}}>
+                        <div style={{width: bodyWidth, height: bodyHeight, position: "relative"}}>
                             {layers.map((layer, i) => {
                                 return (
                                     <img
@@ -128,8 +132,8 @@ class Anatomy extends React.Component {
                                         onDragStart={e => e.preventDefault()}
                                         onDoubleClick={e => e.preventDefault()}
                                         src={layer} style={{
-                                        width: 217,
-                                        height: 580,
+                                        width: bodyWidth,
+                                        height: bodyHeight,
                                         position: "absolute",
                                         opacity: 1 / 2,
                                         top: 0,
