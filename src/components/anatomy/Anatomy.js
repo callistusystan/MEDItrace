@@ -24,6 +24,7 @@ class Anatomy extends React.Component {
 
     state = {
         layer: 1,
+        time : new Date().getMinutes(),
         painSpots: [],
     }
 
@@ -36,27 +37,30 @@ class Anatomy extends React.Component {
         const {x, y} = el.getBoundingClientRect();
         const displacementX = mouseX - x
         const displacementY = mouseY - y
-        const pixels = Array.from(ctx.getImageData(displacementX-15,displacementY-15,15,15).data)
+        const pixels = Array.from(ctx.getImageData(displacementX,displacementY,3,3).data)
         if(!arrayAllZero(pixels)) {
             this.addPainspot(displacementX - 15, displacementY - 15, this.state.layer)
         }
     }
 
     addPainspot = (x, y, layer) => {
+        const currentDate = new Date().getMinutes()
         this.setState({
             ...this.state,
-            painSpots: [...this.state.painSpots, {x, y, layer}],
+            painSpots: [...this.state.painSpots, {x, y, layer,currentDate }],
 
         })
     }
 
     componentDidMount(){
-        const img = new Image();
-        const ctx = this.canvas.getContext("2d");
-        img.onload = () => {
-            ctx.drawImage(img,0,0)
-        };
+        const img = new Image(217,580);
+        const canvas = this.canvas
+        const ctx = canvas.getContext("2d");
         img.src = layer0
+        img.onload = () => {
+            ctx.drawImage(img, 0, 0, img.width,    img.height)
+        };
+
     }
 
     render() {
@@ -74,7 +78,7 @@ class Anatomy extends React.Component {
                     position: "relative"
                 }}
             >
-                <canvas ref={canvas=>this.canvas = canvas} height={580} width={217} style={{display:"none"}}/>
+                <canvas ref={canvas=>this.canvas = canvas} width={217} height={580} style={{display:"none"}}/>
                 <Slider
                     dots
                     vertical
@@ -83,7 +87,7 @@ class Anatomy extends React.Component {
                     default={8}
                     style={{
                         position: "absolute",
-                        top: 10,
+                        top: 30,
                         right: 10,
                         height: 200
                     }}
@@ -127,7 +131,15 @@ class Anatomy extends React.Component {
                             return null
                         }
                         return (
-                            <PainSpot key={`${x}${y}${layer}`} style={{position: "absolute", top: y, left: x,zIndex:1}}/>
+                            <PainSpot
+                                key={`${x}${y}${layer}`}
+                                style={{position: "absolute", top: y, left: x,zIndex:1}}
+                                onClick={e=>{
+                                    console.log(e)
+                                    e.stopPropagation()
+
+                                }}
+                            />
                         )
                     })}
 
