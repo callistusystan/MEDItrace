@@ -13,8 +13,8 @@ class App extends Component {
                 <Switch>
                     <Route path='/history' component={HistoryPage} />
                     <Route path='/new' component={BodyPage} />
-                    <Route exact path='/' component={HomePage} />
                     <Route path='/symptoms' component={SymptomsPage} />
+                    <Route exact path='/' component={HomePage} />
                 </Switch>
             </MobileHackathon>
         );

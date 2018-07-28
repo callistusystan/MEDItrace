@@ -1,36 +1,71 @@
 import React, { Component } from 'react';
 
+import { SymptomsBottomSection } from './SymptomsBottomSection';
 import { MyRater } from './MyRater';
 import { FormContent } from './FormContent';
 
 import {   
-  FormControl,
-  FormHelperText,
-  Input,
-  InputLabel,
+  Button,
   withStyles,
   Typography
 } from '@material-ui/core';
 
 const RatingControl = ({ id, children, onRate, ...other }) => (
   <div>
-    <Typography>{children}</Typography>
+    <h2>{children}</h2>
     <MyRater id={id} onRate={onRate} />
   </div>
 );
 
 export const SymptomsRatingForm = withStyles({
-  container: {
-    display: 'flex',
-    flexDirection: 'column'
+  bottomSection: {
+    display: 'flex'
+  },
+  nextButton: {
+    display: ''
   }
-})(({ classes }) => (
-  <form class={classes.container}>
-    <FormContent title="Symptoms">
-      <RatingControl>Pain</RatingControl>
-      <RatingControl>Itchiness</RatingControl>
-      <RatingControl>Swelling</RatingControl>
-      <RatingControl>Pain</RatingControl>
-    </FormContent>
-  </form>
-))
+})(class extends Component {
+  constructor() {
+    super();
+    this.state = {
+      pain: 0,
+      itchiness: 0,
+      swelling: 0
+    }
+  }
+
+  onRatePain = (pain) => {
+    this.setState({
+      pain,
+    });
+  }
+
+  onRateItchiness = (itchiness) => {
+    this.setState({
+      itchiness
+    });
+  }
+
+  onRateSwelling = (swelling) => {
+    this.setState({
+      swelling
+    });
+  }
+
+  onNext = () => {
+    this.props.onNext(this.state);
+  }
+
+  render() {
+    return (
+      <form>
+        <FormContent title="Symptoms">
+          <RatingControl rating={this.state.pain} onRate={this.onRatePain}>Pain</RatingControl>
+          <RatingControl rating={this.state.itchiness} onRate={this.onRateItchiness}>Itchiness</RatingControl>
+          <RatingControl rating={this.state.swelling} onRate={this.onRateSwelling}>Swelling</RatingControl>
+          <SymptomsBottomSection onNext={this.onNext}/>
+        </FormContent>
+      </form>
+    )
+  }
+});
