@@ -4,7 +4,7 @@ import { SymptomsBottomSection } from './SymptomsBottomSection';
 import { MyRater } from './MyRater';
 import { FormContent } from './FormContent';
 
-import {   
+import {
   Button,
   withStyles,
   Typography
@@ -60,9 +60,13 @@ export const SymptomsRatingForm = withStyles({
     return (
       <form>
         <FormContent title="Symptoms">
+            <br/>
           <RatingControl rating={this.state.pain} onRate={this.onRatePain}>Pain</RatingControl>
+            <br/>
           <RatingControl rating={this.state.itchiness} onRate={this.onRateItchiness}>Itchiness</RatingControl>
+            <br/>
           <RatingControl rating={this.state.swelling} onRate={this.onRateSwelling}>Swelling</RatingControl>
+            <br/>
           <SymptomsBottomSection onNext={this.onNext}/>
         </FormContent>
       </form>

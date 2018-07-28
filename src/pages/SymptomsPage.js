@@ -8,16 +8,17 @@ import BottomBar from '../components/BottomBar';
 import TopBar from '../components/TopBar';
 import { SymptomsRatingForm } from '../components/SymptomsRatingForm';
 import { SymptomsExtraForm } from '../components/SymptomsExtraForm';
+import ScrollView from "../components/react-mobile-hackathon/devices/ScrollView";
 
-export default class SymptomsPage extends Component { 
+export default class SymptomsPage extends Component {
   constructor() {
     super();
     this.state = {
       ratings: {
-        
+
       },
       extras: {
-        
+
       }
     }
   }
@@ -43,8 +44,9 @@ export default class SymptomsPage extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{ ...styles.container }}>
         <TopBar />
+        <ScrollView>
         <Switch>
           <Route exact path={`${this.props.match.url}/`} render={() => <Redirect to={`${this.props.match.url}/rate`}/>}/>
           <Route path={`${this.props.match.url}/rate`} render={() => (
@@ -54,8 +56,20 @@ export default class SymptomsPage extends Component {
             <SymptomsExtraForm onNext={this.onExtraPageNext}/>
           )}/>
         </Switch>
+        </ScrollView>
         <BottomBar/>
       </div>
     );
   }
 }
+
+
+const styles = {
+    container: {
+        width: '100%',
+        height: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        backgroundColor: '#FFF'
+    }
+};

@@ -64,13 +64,13 @@ class Anatomy extends React.Component {
             }
         });
 
-        // setTimeout(() => {
-        //     console.log(this.props.history);
-        //     this.props.history.push({
-        //         pathname: '/symptoms',
-        //         state: { x, y, layer }
-        //     })
-        // }, 1000)
+        setTimeout(() => {
+            console.log(this.props.history);
+            this.props.history.push({
+                pathname: '/symptoms',
+                state: { x, y, layer }
+            })
+        }, 1000)
     };
 
     componentDidMount(){
