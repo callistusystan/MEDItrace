@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import CameraButton from '../images/iphone-camera-button';
+import CameraButton from '../images/iphone-camera-button.png';
 
 export class Camera extends Component { 
   constructor() {

@@ -6,8 +6,7 @@ import { PulseLoader } from 'react-spinners';
 import { Fade } from '@material-ui/core';
 import TopBar from '../components/TopBar';
 import { Link } from 'react-router-dom';
-
-import { Camera } from '../components/CameraTest';
+import { Camera } from '../components/Camera';
 
 class HomePage extends Component {
 
@@ -45,26 +44,8 @@ class HomePage extends Component {
     render() {
         return (
             <div style={styles.container}>
-<<<<<<< HEAD
                 <TopBar />
-=======
-                <DeviceBar
-                    title='MEDIocre'
-                    logoComponent={
-                        <img src={HeartBeat} style={{ position: 'absolute', width: 48, height: 48 }} />
-                    }
-                    position='top'
-                    noBorder
-                    isAppBar
-                    titleStyle={{
-                        color: '#555'
-                    }}
-                    style={{
-                        borderColor: '#DDD'
-                    }}
-                />
-                <Camera/>
->>>>>>> 0177e375275cdd4372dfd24cfecb9e0d1a5e3444
+                <Camera />
                 {this.state.ready ? this.renderBody() : this.renderLoading()}
                 <DeviceBar
                     title='Bottom Bar'
