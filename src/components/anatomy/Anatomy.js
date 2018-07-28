@@ -111,7 +111,7 @@ class Anatomy extends React.Component {
                     <h3 style={{ color: '#555', fontWeight: 600, marginTop: 16 }}>{layerNames[this.state.layer - 1]}</h3>
                     {this.props.timeline}
                 </div>
-                <div style={{ width: '100%', position: 'relative', display: 'flex', justifyContent: 'center', marginTop: -16 }}>
+                <div style={{ width: '100%', position: 'relative', display: 'flex', justifyContent: 'center', marginTop: 16 }}>
 
                     <Slider
                         dots
