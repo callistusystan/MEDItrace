@@ -5,8 +5,9 @@ import LoadingView from '../components/react-mobile-hackathon/devices/LoadingVie
 import { PulseLoader } from 'react-spinners';
 import { Fade } from '@material-ui/core';
 import TopBar from '../components/TopBar';
-import { Link } from 'react-router-dom';
-import { Camera } from '../components/Camera';
+import Card from '../components/Card';
+import Doctor from '../images/doctor.png';
+import Stethoscope from '../images/stethoscope.png';
 
 class HomePage extends Component {
 
@@ -21,21 +22,40 @@ class HomePage extends Component {
     renderLoading = () => {
         return (
             <LoadingView>
-                <PulseLoader color='rgb(255, 91, 91)' loading={!this.state.ready} />
+                <PulseLoader color='rgb(255, 91, 91)' loading={!this.state.ready}/>
             </LoadingView>
         );
     };
 
     renderBody = () => {
         return (
-            <ScrollView style={{ padding: '4px 8px' }}>
-                <div style={{ height: '200%', display: 'flex', flexDirection: 'column' }}>
-                    <Fade in={200}>
-                        <h2 style={{ color: '#555' }}>Welcome back, David</h2>
+            <ScrollView style={{ padding: '8px 16px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                    <Fade in timeout={200}>
+                        <h2>Welcome back, David</h2>
                     </Fade>
-                    <Link to='/body'>Body Page</Link>
-                    <div style={{ flex: 1 }} />
-                    <h2 style={{ color: '#555' }}>You've reached the end!</h2>
+
+                    <Fade in timeout={300}>
+                        <h3 style={{ color: '#555', marginTop: 16 }}>What would you like to do today?</h3>
+                    </Fade>
+                    <Fade in timeout={600}>
+                        <div>
+                            <Card to='/new' img={Stethoscope} style={{ backgroundColor: '#2980b9', marginTop: 16 }}>Record
+                                New Symptom</Card>
+                        </div>
+                    </Fade>
+                    <Fade in timeout={800}>
+                        <div>
+                            <Card to='/history' style={{ marginTop: 16 }}>Health History</Card>
+                        </div>
+                    </Fade>
+                    <Fade in timeout={1000}>
+                        <div>
+                            <Card to='/doctor' img={Doctor} style={{ backgroundColor: '#27ae60', marginTop: 16 }}>
+                                Find a Doctor
+                            </Card>
+                        </div>
+                    </Fade>
                 </div>
             </ScrollView>
         );
@@ -44,7 +64,7 @@ class HomePage extends Component {
     render() {
         return (
             <div style={styles.container}>
-                <TopBar />
+                <TopBar/>
                 {this.state.ready ? this.renderBody() : this.renderLoading()}
                 <DeviceBar
                     title='Bottom Bar'
@@ -53,7 +73,7 @@ class HomePage extends Component {
                         color: '#555'
                     }}
                     style={{
-                        borderColor: '#EEE'
+                        borderColor: '#DDD'
                     }}
                 />
             </div>
