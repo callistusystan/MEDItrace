@@ -45,11 +45,11 @@ class Anatomy extends React.Component {
         const mouseY = e.clientY
         const el = e.target
         const {x, y} = el.getBoundingClientRect();
-        const displacementX = mouseX - x
-        const displacementY = mouseY - y
-        const pixels = Array.from(ctx.getImageData(displacementX,displacementY,3,3).data)
+        const displacementX = (mouseX - x)/bodyWidth
+        const displacementY = (mouseY - y)/bodyHeight
+        const pixels = Array.from(ctx.getImageData(displacementX*bodyWidth,displacementY*bodyHeight,3,3).data)
         if(!arrayAllZero(pixels)) {
-            this.addPainspot(displacementX - 15, displacementY - 15, this.state.layer)
+            this.addPainspot(displacementX , displacementY, this.state.layer)
         }
     }
 
@@ -148,14 +148,16 @@ class Anatomy extends React.Component {
                             if (layer !== this.state.layer && this.state.layer !== 8) {
                                 return null
                             }
+                            const actualDisplacementX = x*bodyWidth - 15
+                            const actualDisplacementY = y*bodyHeight - 15
                             return (
                                 <Tooltip title={painSpot.note || 'asdf'} text
-                                         style={{position: "absolute", top: y, left: x,zIndex:1}}>
+                                         style={{position: "absolute", top: actualDisplacementY, left: actualDisplacementX,zIndex:1}}>
                                     <PainSpot
                                         title={painSpot.note}
                                         key={`${x}${y}${layer}`}
                                         x={x}
-                                        style={{position: "absolute", top: y, left: x,zIndex:1}}
+                                        style={{position: "absolute", top: actualDisplacementY, left: actualDisplacementX,zIndex:1}}
                                         onClick={e=>{
                                             console.log(e)
                                             e.stopPropagation()
