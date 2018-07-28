@@ -1,0 +1,37 @@
+.scroll--simple {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.scroll--simple::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+.scroll--simple::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.1);
+}
+.scroll--simple::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.2);
+}
+.scroll--simple::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 0, 0, 0.4);
+}
+.scroll--simple::-webkit-scrollbar-thumb:active {
+    background: rgba(0, 0, 0, 0.9);
+}
+.scroll--simple.dark::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.3) !important;
+}
+.scroll--simple.dark::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.8) !important;
+}
+.scroll--simple.dark::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.8) !important;
+}
+.scroll--simple.dark::-webkit-scrollbar-thumb:active {
+    background: rgba(255, 255, 255, 0.8) !important;
+}
