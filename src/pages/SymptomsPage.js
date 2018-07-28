@@ -49,6 +49,23 @@ export default withStyles({
     }
   }
 
+  componentDidMount() {
+    console.log('Checking location state is present...');
+    if (
+      !(
+        this.props.location &&
+        this.props.location.state &&
+        this.props.location.state.x && 
+        this.props.location.state.y && 
+        this.props.location.state.layer
+      )
+    ) {
+      console.log('Pain point data is not present. Redirecting to homepage');
+      // We need the pain point coordinates to get this component to work
+      this.props.history.push('/');
+    }
+  }
+
   onRatingPageNext = (data) => {
     this.setState({
       ratings: data
@@ -68,11 +85,14 @@ export default withStyles({
 
     const dataRef = firebase.database().ref('/painSpots/Jul');
     const painPointRef = await dataRef.push();
-
+    const { x, y, layer } = this.props.location.state;
     await painPointRef.set({
       ratings: this.state.ratings,
       note: data.note,
-      imgUrl
+      imgUrl,
+      x,
+      y,
+      layer
     });
     // TODO: Check if this is right
     return this.props.history.push('/new');
@@ -87,7 +107,7 @@ export default withStyles({
         <div className={this.props.classes.content}>
           <ScrollView>
             <Switch>
-              <Route exact strict path={`${this.props.match.url}`} render={() => <Redirect to={`${this.props.match.url}/rate`}/>}/>
+              <Route exact strict path={`${this.props.match.url}`} render={() => <Redirect to={`${this.props.match.url}${this.props.match.url.endsWith('/') ? '' : '/'}rate`}/>}/>
               <Route path={`${this.props.match.url}/rate`} render={() => (
                 <SymptomsRatingForm onNext={this.onRatingPageNext}/>
               )}/>
