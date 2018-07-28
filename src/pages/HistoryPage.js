@@ -8,7 +8,7 @@ import TopBar from '../components/TopBar';
 import Anatomy from "../components/anatomy/Anatomy"
 import BottomBar from '../components/BottomBar';
 
-class BodyPage extends Component {
+class HistoryPage extends Component {
 
     state = {
         ready: false
@@ -28,11 +28,12 @@ class BodyPage extends Component {
 
     renderBody = () => {
         return (
-            <ScrollView style={{ padding: '4px 8px' }}>
+            <ScrollView>
                 <div style={{ height: 'auto', display: 'flex', flexDirection: 'column' }}>
                     <Fade in={200}>
-                        <h2 style={{ color: '#555' }}>David's Sexy Body Page</h2>
+                        <h2 style={{ color: '#555' }}>Health History</h2>
                     </Fade>
+                    <div style={{ height: 16 }} />
                     <Anatomy/>
                 </div>
             </ScrollView>
@@ -60,4 +61,4 @@ const styles = {
     }
 };
 
-export default BodyPage;
+export default HistoryPage;

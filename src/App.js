@@ -4,12 +4,14 @@ import { Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import BodyPage from './pages/BodyPage';
 import { Camera } from './components/Camera';
+import HistoryPage from './pages/HistoryPage';
 
 class App extends Component {
     render() {
         return (
             <MobileHackathon>
                 <Switch>
+                    <Route path='/history' component={HistoryPage} />
                     <Route path='/new' component={BodyPage} />
                     <Route exact path='/' component={HomePage} />
                 </Switch>

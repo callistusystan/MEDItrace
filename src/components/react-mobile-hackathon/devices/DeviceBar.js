@@ -7,7 +7,7 @@ class DeviceBar extends Component {
                 className={`device-bar ${this.props.position}`}
                 style={{
                     width: '100%',
-                    height: 72,
+                    height: 60,
                     display: 'flex',
                     alignItems: 'center',
                     borderTop: this.props.position === 'bottom' ? '1px solid' : undefined,
@@ -19,6 +19,7 @@ class DeviceBar extends Component {
                 }}
             >
                 {this.props.logoComponent}
+                {this.props.children}
                 <h2 style={{ margin: 'auto', ...this.props.titleStyle }}>{this.props.title}</h2>
             </div>
         );

@@ -10,7 +10,7 @@ class TopBar extends Component {
                 className={`device-bar top`}
                 style={{
                     width: '100%',
-                    height: 72,
+                    height: '60px !important',
                     display: 'flex',
                     alignItems: 'center',
                     borderBottom: '1px solid',
@@ -21,7 +21,7 @@ class TopBar extends Component {
                 }}
             >
                 <Link to='/' style={{ position: 'absolute' }}>
-                    <img src={HeartBeat} style={{ width: 48, height: 48 }} />
+                    <img src={HeartBeat} style={{ width: 32, height: 32 }} />
                 </Link>
                 <Logo />
             </div>

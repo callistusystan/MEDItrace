@@ -8,6 +8,7 @@ import TopBar from '../components/TopBar';
 import Card from '../components/Card';
 import Doctor from '../images/doctor.png';
 import Stethoscope from '../images/stethoscope.png';
+import BottomBar from '../components/BottomBar';
 
 class HomePage extends Component {
 
@@ -29,7 +30,7 @@ class HomePage extends Component {
 
     renderBody = () => {
         return (
-            <ScrollView style={{ padding: '8px 16px' }}>
+            <ScrollView>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <Fade in timeout={200}>
                         <h2>Welcome back, David</h2>
@@ -66,16 +67,7 @@ class HomePage extends Component {
             <div style={styles.container}>
                 <TopBar/>
                 {this.state.ready ? this.renderBody() : this.renderLoading()}
-                <DeviceBar
-                    title='Bottom Bar'
-                    position='bottom'
-                    titleStyle={{
-                        color: '#555'
-                    }}
-                    style={{
-                        borderColor: '#DDD'
-                    }}
-                />
+                <BottomBar />
             </div>
         );
     }
