@@ -107,11 +107,11 @@ class Anatomy extends React.Component {
                 }}
             >
                 <canvas ref={canvas=>this.canvas = canvas} width={bodyWidth} height={bodyHeight} style={{display:"none"}}/>
-                <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                    <h3>{layerNames[this.state.layer - 1]}</h3>
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'top' }}>
+                    <h3 style={{ color: '#555', fontWeight: 600, marginTop: 16 }}>{layerNames[this.state.layer - 1]}</h3>
                     {this.props.timeline}
                 </div>
-                <div style={{ width: '100%', position: 'relative', display: 'flex', justifyContent: 'center' }}>
+                <div style={{ width: '100%', position: 'relative', display: 'flex', justifyContent: 'center', marginTop: -16 }}>
 
                     <Slider
                         dots
