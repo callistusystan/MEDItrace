@@ -34,11 +34,11 @@ class HomePage extends Component {
             <ScrollView>
                 <div style={{ display: 'flex', flexDirection: 'column' }}>
                     <Fade in timeout={200}>
-                        <h2 style={{ marginTop: 8, fontWeight: 300, letterSpacing: 0.3 }}>Welcome back, David</h2>
+                        <h2 style={{ marginTop: 8, fontWeight: 700 }}>Welcome back, David</h2>
                     </Fade>
 
                     <Fade in timeout={300}>
-                        <h3 style={{ color: '#555', marginTop: 16, fontWeight: 600 }}>What would you like to do today?</h3>
+                        <h3 style={{ color: '#555', marginTop: 16, fontWeight: 300 }}>What would you like to do today?</h3>
                     </Fade>
                     <Fade in timeout={600}>
                         <div>

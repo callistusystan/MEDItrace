@@ -10,6 +10,7 @@ import BottomBar from '../components/BottomBar';
 import TopBar from '../components/TopBar';
 import { SymptomsRatingForm } from '../components/SymptomsRatingForm';
 import { SymptomsExtraForm } from '../components/SymptomsExtraForm';
+import ScrollView from "../components/react-mobile-hackathon/devices/ScrollView";
 
 import { uploadImage } from '../utils/FirebaseHandler';
 
@@ -84,15 +85,17 @@ export default withStyles({
           <TopBar />
         </div>
         <div className={this.props.classes.content}>
-          <Switch>
-            <Route exact strict path={`${this.props.match.url}`} render={() => <Redirect to={`${this.props.match.url}/rate`}/>}/>
-            <Route path={`${this.props.match.url}/rate`} render={() => (
-              <SymptomsRatingForm onNext={this.onRatingPageNext}/>
-            )}/>
-            <Route path={`${this.props.match.url}/extras`} render={() =>(
-              <SymptomsExtraForm onNext={this.onExtraPageNext}/>
-            )}/>
-          </Switch>
+          <ScrollView>
+            <Switch>
+              <Route exact strict path={`${this.props.match.url}`} render={() => <Redirect to={`${this.props.match.url}/rate`}/>}/>
+              <Route path={`${this.props.match.url}/rate`} render={() => (
+                <SymptomsRatingForm onNext={this.onRatingPageNext}/>
+              )}/>
+              <Route path={`${this.props.match.url}/extras`} render={() =>(
+                <SymptomsExtraForm onNext={this.onExtraPageNext}/>
+              )}/>
+            </Switch>
+          </ScrollView>
         </div>
         <div className={this.props.classes.bottom}>
           <BottomBar/>

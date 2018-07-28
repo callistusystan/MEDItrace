@@ -7,8 +7,8 @@ import { SymptomsBottomSection } from './SymptomsBottomSection';
 import { FormContent } from './FormContent';
 
 export const SymptomsExtraForm = withStyles({
-  
-})(class extends Component { 
+
+})(class extends Component {
   constructor() {
     super();
     this.state = {

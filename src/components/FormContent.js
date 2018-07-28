@@ -4,13 +4,12 @@ import { Typography, withStyles } from '@material-ui/core';
 
 export const FormContent = withStyles({
   container: {
-    padding: '16px',
     display: 'flex',
     flexDirection: 'column'
   }
 })(({ children, title, classes }) => (
   <div className={classes.container}>
-    <h1>{ title }</h1>
+    <h2 style={{ marginTop: 8, fontWeight: 700 }}>{ title }</h2>
     { children }
   </div>
 ))

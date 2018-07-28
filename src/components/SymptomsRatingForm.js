@@ -4,13 +4,14 @@ import { SymptomsBottomSection } from './SymptomsBottomSection';
 import { MyRater } from './MyRater';
 import { FormContent } from './FormContent';
 
-import {   
+import {
+  Button,
   withStyles,
 } from '@material-ui/core';
 
 const RatingControl = ({ id, children, onRate, ...other }) => (
   <div>
-    <h2>{children}</h2>
+    <h3 style={{ color: '#555', fontWeight: 300, marginTop: 16, marginBottom: 16 }}>{children}</h3>
     <MyRater id={id} onRate={onRate} />
   </div>
 );

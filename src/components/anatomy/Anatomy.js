@@ -55,12 +55,12 @@ class Anatomy extends React.Component {
     }
 
     addPainspot = (x, y, layer) => {
-        const currentDate = new Date().getMinutes()
+        const currentDate = new Date().getMinutes();
         this.setState({
             ...this.state,
             painSpots: {
                 ...this.state.painSpots,
-                Jul: [ ...this.state.painSpots.Jul, { x, y, layer, currentDate } ],
+                Jul: [ ...this.state.painSpots.Jul, { x: x, y: y, layer, currentDate } ],
             }
         });
 
@@ -108,7 +108,7 @@ class Anatomy extends React.Component {
             >
                 <canvas ref={canvas=>this.canvas = canvas} width={bodyWidth} height={bodyHeight} style={{display:"none"}}/>
                 <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'top' }}>
-                    <h3 style={{ color: '#555', fontWeight: 600, marginTop: 16 }}>{layerNames[this.state.layer - 1]}</h3>
+                    <h3 style={{ color: '#555', fontWeight: 300, marginTop: 16 }}>{layerNames[this.state.layer - 1]}</h3>
                     {this.props.timeline}
                 </div>
                 <div style={{ width: '100%', position: 'relative', display: 'flex', justifyContent: 'center', marginTop: 16 }}>
