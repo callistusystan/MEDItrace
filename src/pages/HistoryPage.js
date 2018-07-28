@@ -49,7 +49,7 @@ class HistoryPage extends Component {
                     max={6}
                     default={0}
                     tipFormatter={i => marks[i]}
-                    style={{ width: '60%' }} />
+                    style={{ width: 200 }} />
         );
     };
 
