@@ -6,7 +6,7 @@ import layer3 from "../../images/layer_3.png"
 import layer4 from "../../images/layer_4.png"
 import layer5 from "../../images/layer_5.png"
 import layer6 from "../../images/layer_6.png"
-import {Slider} from 'antd';
+import { Tooltip, Slider} from 'antd';
 import PainSpot from './PainSpot'
 
 const layers = [layer0, layer1, layer2, layer3, layer4, layer5, layer6]
@@ -18,7 +18,10 @@ const arrayAllZero = array => {
         }
     }
     return true
-}
+};
+
+const MONTH = 'Jul';
+
 class Anatomy extends React.Component {
 
     constructor(props) {
@@ -27,7 +30,7 @@ class Anatomy extends React.Component {
         this.state = {
             layer: 1,
             time : new Date().getMinutes(),
-            painSpots: [],
+            painSpots: this.props.painSpots || { Jul: [] }
         }
     };
 
@@ -50,10 +53,12 @@ class Anatomy extends React.Component {
         const currentDate = new Date().getMinutes()
         this.setState({
             ...this.state,
-            painSpots: [...this.state.painSpots, {x, y, layer,currentDate }],
-
+            painSpots: {
+                ...this.state.painSpots,
+                Jul: [ ...this.state.painSpots.Jul, { x, y, layer, currentDate } ],
+            }
         })
-    }
+    };
 
     componentDidMount(){
         const img = new Image(217,580);
@@ -67,8 +72,8 @@ class Anatomy extends React.Component {
     }
 
     render() {
+        console.log(this.state.painSpots);
         return (
-
             <div
                 style={{
                     width: "100%",
@@ -134,21 +139,25 @@ class Anatomy extends React.Component {
                                 )
                             })}
                         </div>}
-                        {this.state.painSpots.map(painSpot => {
+                        {this.state.painSpots[this.props.month || MONTH].map(painSpot => {
                             const {x, y, layer} = painSpot
                             if (layer !== this.state.layer && this.state.layer !== 8) {
                                 return null
                             }
                             return (
-                                <PainSpot
-                                    key={`${x}${y}${layer}`}
-                                    style={{position: "absolute", top: y, left: x,zIndex:1}}
-                                    onClick={e=>{
-                                        console.log(e)
-                                        e.stopPropagation()
-
-                                    }}
-                                />
+                                <Tooltip title={painSpot.note || 'asdf'} text
+                                         style={{position: "absolute", top: y, left: x,zIndex:1}}>
+                                    <PainSpot
+                                        title={painSpot.note}
+                                        key={`${x}${y}${layer}`}
+                                        x={x}
+                                        style={{position: "absolute", top: y, left: x,zIndex:1}}
+                                        onClick={e=>{
+                                            console.log(e)
+                                            e.stopPropagation()
+                                        }}
+                                    />
+                                </Tooltip>
                             )
                         })}
 

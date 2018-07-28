@@ -1,5 +1,7 @@
 .scroll--simple {
     overflow-y: auto;
+    overflow-x: hidden;
+    width: 100% !important;
     -webkit-overflow-scrolling: touch;
 }
 

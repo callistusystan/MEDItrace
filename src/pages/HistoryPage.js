@@ -9,24 +9,46 @@ import BottomBar from '../components/BottomBar';
 import { Slider } from 'antd';
 
 const marks = {
-    0: 'Jan',
-    1: 'Feb',
-    2: 'Mar',
-    3: 'Apr',
-    4: 'May',
-    5: 'Jun',
-    6: 'Jul',
-    7: 'Aug',
-    8: 'Sep',
-    9: 'Oct',
-    10: 'Nov',
-    11: 'Dec'
+    0: 'Apr',
+    1: 'May',
+    2: 'Jun',
+    3: 'Jul'
+};
+
+const painSpots = {
+    Apr: [
+        {x: 28.015625, y: 182.5, layer: 1, note: 'Rash'},
+        {x: 161.015625, y: 195.5, layer: 1, note: 'Rash'},
+        {x: 44.015625, y: 97.5, layer: 2, note: 'Shoulder ache'},
+        {x: 106.015625, y: 0.5, layer: 7, note: 'Headache'},
+        {x: 74.015625, y: 7.5, layer: 7, note: 'Headache'}
+    ],
+    May: [
+        {x: 13.015625, y: 189.5, layer: 1, note: 'Rash'},
+        {x: 158.015625, y: 180.5, layer: 1, note: 'Rash'},
+        {x: 136.015625, y: 440.5, layer: 2, note: 'Leg cramp'},
+        {x: 156.015625, y: 154.5, layer: 2, note: 'Leg cramp'},
+        {x: 96.015625, y: -1.5, layer: 7, note: 'Headache'}
+    ],
+    Jun: [
+        {x: 83.015625, y: 13.5, layer: 7, note: 'Headache'},
+        {x: 155.015625, y: 155.5, layer: 2, note: 'Leg cramp'}
+    ],
+    Jul: [
+        {x: 13.015625, y: 189.5, layer: 1, note: 'Rash'},
+        {x: 158.015625, y: 180.5, layer: 1, note: 'Rash'},
+        {x: 106.015625, y: 15.5, layer: 7, note: 'Headache'},
+        {x: 106.015625, y: 0.5, layer: 7, note: 'Headache'},
+        {x: 57.015625, y: 441.5, layer: 2, note: 'Leg cramp'},
+        {x: 156.015625, y: 154.5, layer: 2, note: 'Leg cramp'},
+    ]
 };
 
 class HistoryPage extends Component {
 
     state = {
-        ready: false
+        ready: false,
+        month: 'Apr'
     };
 
     componentDidMount() {
@@ -43,12 +65,16 @@ class HistoryPage extends Component {
 
     renderTimeline = () => {
         return (
-            <Slider marks={{ 0: 'Jan', 1: '', 2: '', 3: '', 4: '', 5: '', 6: 'Jul' }}
+            <Slider marks={{ 0: 'Apr', 1: '', 2: '', 3: 'Jul' }}
                     min={0}
-                    max={6}
+                    max={3}
                     default={0}
                     tipFormatter={i => marks[i]}
-                    style={{ minWidth: 180, width: 180 }} />
+                    onChange={i => {
+                        this.setState({ month: marks[i] })
+                    }}
+                    style={{ minWidth: 180, width: 180 }}
+            />
         );
     };
 
@@ -59,7 +85,7 @@ class HistoryPage extends Component {
                     <Fade in={200}>
                         <h2 style={{ color: '#555' }}>Health History</h2>
                     </Fade>
-                    <Anatomy timeline={this.renderTimeline()} />
+                    <Anatomy month={this.state.month} painSpots={painSpots} timeline={this.renderTimeline()} />
                 </div>
             </ScrollView>
         );

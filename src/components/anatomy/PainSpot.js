@@ -1,11 +1,13 @@
 import React from "react"
 import "./painspot.css"
+import { Tooltip } from 'antd';
 
 class PainSpot extends React.Component {
     render() {
 
             const {style} = this.props
         return (
+            <Tooltip placement={this.props.x < 108 ? 'left' : 'right'} visible title={this.props.title} text style={{ marginTop: 25 }}>
             <svg version="1.1" id="Layer_1" x="0px" y="0px" className={'rotating'}
                  viewBox="0 0 512 512" style={{enableBackground: "new 0 0 512 512", height: 30, width: 30, ...style}}>
                 <circle style={{fill: "#fff"}} cx="255.995" cy="255.996" r="76.945"/>
@@ -57,7 +59,7 @@ class PainSpot extends React.Component {
                 <g>
                 </g>
             </svg>
-
+            </Tooltip>
         )
     }
 }
