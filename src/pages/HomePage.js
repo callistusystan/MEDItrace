@@ -8,6 +8,7 @@ import TopBar from '../components/TopBar';
 import { Link } from 'react-router-dom';
 import Card from '../components/Card';
 import Doctor from '../images/doctor.png';
+import AnalyticsIcon from "../images/analytics.svg"
 import Stethoscope from '../images/stethoscope.png';
 import BottomBar from '../components/BottomBar';
 
@@ -49,6 +50,13 @@ class HomePage extends Component {
                     <Fade in timeout={800}>
                         <div>
                             <Card to='/history' style={{ marginTop: 16 }}>Health History</Card>
+                        </div>
+                    </Fade>
+                    <Fade in timeout={1000}>
+                        <div>
+                            <Card to='/doctor' img={AnalyticsIcon} style={{ backgroundColor: '#e67e22', marginTop: 16 }}>
+                                Analytics
+                            </Card>
                         </div>
                     </Fade>
                     <Fade in timeout={1000}>
