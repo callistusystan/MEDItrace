@@ -68,7 +68,7 @@ class HistoryPage extends Component {
             <ScrollView>
                 <div style={{ height: 'auto', display: 'flex', flexDirection: 'column' }}>
                     <Fade in={200}>
-                        <h2 style={{ marginTop: 8, fontWeight: 300, letterSpacing: 0.3 }}>Health History</h2>
+                        <h2 style={{ marginTop: 8, fontWeight: 700 }}>Health History</h2>
                     </Fade>
                     <Anatomy month={this.state.month} painSpots={this.state.painSpots} timeline={this.renderTimeline()} />
                 </div>

@@ -12,7 +12,7 @@ import {
 
 const RatingControl = ({ id, children, onRate, ...other }) => (
   <div>
-    <h2>{children}</h2>
+    <h3 style={{ color: '#555', fontWeight: 300, marginTop: 16, marginBottom: 16 }}>{children}</h3>
     <MyRater id={id} onRate={onRate} />
   </div>
 );
@@ -60,13 +60,9 @@ export const SymptomsRatingForm = withStyles({
     return (
       <form>
         <FormContent title="Symptoms">
-            <br/>
           <RatingControl rating={this.state.pain} onRate={this.onRatePain}>Pain</RatingControl>
-            <br/>
           <RatingControl rating={this.state.itchiness} onRate={this.onRateItchiness}>Itchiness</RatingControl>
-            <br/>
           <RatingControl rating={this.state.swelling} onRate={this.onRateSwelling}>Swelling</RatingControl>
-            <br/>
           <SymptomsBottomSection onNext={this.onNext}/>
         </FormContent>
       </form>
