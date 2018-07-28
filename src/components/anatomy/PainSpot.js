@@ -6,7 +6,7 @@ class PainSpot extends React.Component {
 
             const {style} = this.props
         return (
-            <svg onClick={e=>e.stopPropagation()} version="1.1" id="Layer_1" x="0px" y="0px" className={'rotating'}
+            <svg version="1.1" id="Layer_1" x="0px" y="0px" className={'rotating'}
                  viewBox="0 0 512 512" style={{enableBackground: "new 0 0 512 512", height: 30, width: 30, ...style}}>
                 <circle style={{fill: "#fff"}} cx="255.995" cy="255.996" r="76.945"/>
                 <g>
