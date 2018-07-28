@@ -6,7 +6,6 @@ import { PulseLoader } from 'react-spinners';
 import { Fade } from '@material-ui/core';
 import TopBar from '../components/TopBar';
 import { Link } from 'react-router-dom';
-import { Camera } from '../components/Camera';
 
 class HomePage extends Component {
 
