@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import CameraButton from '../images/iphone-camera-button';
+
 export class Camera extends Component { 
   constructor() {
     super();
@@ -63,6 +65,7 @@ export class Camera extends Component {
         <video autoPlay style={{ transform: 'scaleX(-1)' }} ref={this.setCaptureVideoRef}></video>
         <canvas style={{display: 'none'}} ref={this.setCanvasRef}></canvas>
         <button 
+
           ref={this.setTakePicButtonRef}
           disabled={this.state.captureIsReady}
           onClick={this.takePicture}>
