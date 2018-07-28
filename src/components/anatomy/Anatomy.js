@@ -23,7 +23,7 @@ const arrayAllZero = array => {
 
 const MONTH = 'Jul';
 
-const bodyHeight = window.innerHeight * 0.55
+const bodyHeight = window.innerHeight * 0.50
 const bodyWidth = 217/580 * bodyHeight
 
 
