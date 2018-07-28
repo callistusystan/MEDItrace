@@ -18,9 +18,6 @@ const RatingControl = ({ id, children, onRate, ...other }) => (
 export const SymptomsRatingForm = withStyles({
   bottomSection: {
     display: 'flex'
-  },
-  nextButton: {
-    display: ''
   }
 })(class extends Component {
   constructor() {

@@ -4,6 +4,7 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 
 import firebase from 'firebase';
 import { withStyles } from '@material-ui/core';
+import uuid from 'uuid';
 
 import BottomBar from '../components/BottomBar';
 import TopBar from '../components/TopBar';
@@ -55,17 +56,13 @@ export default withStyles({
   }
 
   onExtraPageNext = async (data) => {
-    console.log(data);
-    this.setState({
-      extras: data
-    });
- 
+    let imgUrl = null;
     // TODO: hur hur, should be more than 1 img ref
-    let imgRef = null;
-    if(this.state.extras.imgFiles.length > 0) {
-      const file = this.state.extras.imgFiles[0];
-      imgRef = firebase.storage().ref();
+    if(data.imgFiles.length > 0) {
+      const file = data.imgFiles[0];
+      const imgRef = firebase.storage().ref().child(uuid.v4());
       await uploadImage(imgRef, file);  
+      imgUrl = await imgRef.getDownloadURL();
     }
 
     const dataRef = firebase.database().ref('/painSpots/Jul');
@@ -73,8 +70,8 @@ export default withStyles({
 
     await painPointRef.set({
       ratings: this.state.ratings,
-      note: this.state.extras.note,
-      imgRef: imgRef
+      note: data.note,
+      imgUrl
     });
     // TODO: Check if this is right
     return this.props.history.push('/new');

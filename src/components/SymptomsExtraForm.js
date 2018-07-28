@@ -24,12 +24,14 @@ export const SymptomsExtraForm = withStyles({
   }
 
   onNext = () => {
-    console.log('rawr');
     console.log(this.state);
+    console.log('Next form...');
     this.props.onNext(this.state);
   }
 
   onImagePathChange = async (e) => {
+    console.log('Adding files');
+    console.log(e.target.files.length);
     this.setState({
       imgFiles: e.target.files
     });

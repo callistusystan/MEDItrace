@@ -1,8 +1,5 @@
-import firebase from 'firebase';
-
-export async function uploadImage(file) {
-    const storageRef = firebase.storage().ref();
-
-    await storageRef.put(file);
+export async function uploadImage(ref, file) {
+    const snapshot = await ref.put(file);
     console.log('Uploaded a blob or file!');
+    return snapshot;
 };
