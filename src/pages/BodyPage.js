@@ -50,7 +50,7 @@ class BodyPage extends Component {
                         color: '#555'
                     }}
                     style={{
-                        borderColor: '#DDD'
+                        borderColor: '#EEE'
                     }}
                 />
             </div>
@@ -64,7 +64,7 @@ const styles = {
         height: '100%',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#EEE'
+        backgroundColor: '#FFF'
     }
 };
 
