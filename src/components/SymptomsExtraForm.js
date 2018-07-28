@@ -7,14 +7,14 @@ import { SymptomsBottomSection } from './SymptomsBottomSection';
 import { FormContent } from './FormContent';
 
 export const SymptomsExtraForm = withStyles({
-  
-})(class extends Component { 
+
+})(class extends Component {
   constructor() {
     super();
     this.state = {
       notes: '',
       imagePath: null
-    }    
+    }
   }
 
   onNotesChange = (e) => {
@@ -36,8 +36,14 @@ export const SymptomsExtraForm = withStyles({
   render() {
     return (
       <form>
-        <FormContent title="Extras">        
-          <input type="file" name="pic" accept="image/*" onChange={this.onImagePathChange}/>
+        <FormContent title="Extras">
+            <br/>
+          <input
+              type="file"
+              name="pic"
+              accept="image/*"
+              onChange={this.onImagePathChange}
+          />
           <FormControl margin="dense">
             <InputLabel htmlFor="notes" onChange={this.onImagePathChange}>Notes</InputLabel>
             <Input
