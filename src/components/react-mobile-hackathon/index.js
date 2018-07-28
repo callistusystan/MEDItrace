@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import IPhoneX from './devices/IPhoneX';
 import { QRCode } from 'react-qr-svg';
+import Logo from '../Logo';
 
 let is_safari = /Safari/.test(navigator.userAgent) && /Apple Computer/.test(navigator.vendor);
 let is_chrome = /Chrome|CriOS/.test(navigator.userAgent);
@@ -35,7 +36,7 @@ class MobileHackathon extends Component {
                         padding: 16
                     }}
                 >
-                    <h1 style={{ fontSize: 40 }}>MEDIocre</h1>
+                    <Logo mediStyle={{ fontSize: 40 }} traceStyle={{ fontSize: 40 }} style={{ margin: undefined }} />
                     <p style={{ fontSize: 28, color: '#555' }}>Try it out!</p>
                     <QRCode
                         bgColor="#FFFFFF"

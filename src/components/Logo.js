@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 class Logo extends Component {
     render() {
         return (
-            <div style={{ margin: 'auto', display: 'flex' }}>
+            <div style={{ margin: 'auto', display: 'flex', ...this.props.style }}>
                 <span style={{
                     fontSize: 24,
                     fontWeight: 700,
@@ -15,8 +15,8 @@ class Logo extends Component {
                     fontSize: 24,
                     padding: 2,
                     letterSpacing: 2,
-                    textDecoration: 'underline', ...this.props.ocreStyle
-                }}>ocre</span>
+                    ...this.props.traceStyle
+                }}>trace</span>
             </div>
         );
     }

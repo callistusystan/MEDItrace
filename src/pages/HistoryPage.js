@@ -7,6 +7,22 @@ import { Fade } from '@material-ui/core';
 import TopBar from '../components/TopBar';
 import Anatomy from "../components/anatomy/Anatomy"
 import BottomBar from '../components/BottomBar';
+import { Slider } from 'antd';
+
+const marks = {
+    0: 'Jan',
+    1: 'Feb',
+    2: 'Mar',
+    3: 'Apr',
+    4: 'May',
+    5: 'Jun',
+    6: 'Jul',
+    7: 'Aug',
+    8: 'Sep',
+    9: 'Oct',
+    10: 'Nov',
+    11: 'Dec'
+};
 
 class HistoryPage extends Component {
 
@@ -15,7 +31,7 @@ class HistoryPage extends Component {
     };
 
     componentDidMount() {
-        setTimeout(() => this.setState({ ready: true }), 500);
+        setTimeout(() => this.setState({ ready: true }), 20);
     }
 
     renderLoading = () => {
@@ -26,6 +42,17 @@ class HistoryPage extends Component {
         );
     };
 
+    renderTimeline = () => {
+        return (
+            <Slider marks={{ 0: 'Jan', 1: '', 2: '', 3: '', 4: '', 5: '', 6: 'Jul' }}
+                    min={0}
+                    max={6}
+                    default={0}
+                    tipFormatter={i => marks[i]}
+                    style={{ width: '60%' }} />
+        );
+    };
+
     renderBody = () => {
         return (
             <ScrollView>
@@ -33,8 +60,7 @@ class HistoryPage extends Component {
                     <Fade in={200}>
                         <h2 style={{ color: '#555' }}>Health History</h2>
                     </Fade>
-                    <div style={{ height: 16 }} />
-                    <Anatomy/>
+                    <Anatomy timeline={this.renderTimeline()} />
                 </div>
             </ScrollView>
         );

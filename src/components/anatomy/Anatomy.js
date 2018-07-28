@@ -6,7 +6,6 @@ import layer3 from "../../images/layer_3.png"
 import layer4 from "../../images/layer_4.png"
 import layer5 from "../../images/layer_5.png"
 import layer6 from "../../images/layer_6.png"
-import '../../styles/antd.css';
 import {Slider} from 'antd';
 import PainSpot from './PainSpot'
 
@@ -22,11 +21,15 @@ const arrayAllZero = array => {
 }
 class Anatomy extends React.Component {
 
-    state = {
-        layer: 1,
-        time : new Date().getMinutes(),
-        painSpots: [],
-    }
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            layer: 1,
+            time : new Date().getMinutes(),
+            painSpots: [],
+        }
+    };
 
     handleAddPainspot = e => {
         e.preventDefault()
@@ -75,7 +78,8 @@ class Anatomy extends React.Component {
                     alignItems: "center",
                     flexDirection: "column",
                     fontFamily: "GlacialIndifference",
-                    position: "relative"
+                    position: "relative",
+                    ...this.props.style
                 }}
             >
                 <canvas ref={canvas=>this.canvas = canvas} width={217} height={580} style={{display:"none"}}/>
@@ -87,7 +91,7 @@ class Anatomy extends React.Component {
                     default={8}
                     style={{
                         position: "absolute",
-                        top: 30,
+                        top: this.props.timelime? 120 : 147,
                         right: 10,
                         height: 200
                     }}
@@ -96,9 +100,12 @@ class Anatomy extends React.Component {
                     }}
 
                 />
-                <h1>{layerNames[this.state.layer - 1]}</h1>
-                <div style={{width: 217, height: 580, position: "relative", display: "flex", justifyContent: "center"}}
-                     onClick={this.handleAddPainspot} onDoubleClick={e => e.preventDefault()}>
+                <div style={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                    <h3>{layerNames[this.state.layer - 1]}</h3>
+                    {this.props.timeline}
+                </div>
+                <div style={{width: 217, height: 580, position: "relative", display: "flex", justifyContent: "center", marginTop: 8 }}
+                     onClick={this.props.clickable && this.handleAddPainspot} onDoubleClick={e => e.preventDefault()}>
 
 
                     {this.state.layer < 8 &&
