@@ -3,7 +3,7 @@ import MobileHackathon from './components/react-mobile-hackathon';
 import { Route, Switch } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import BodyPage from './pages/BodyPage';
-import { Camera } from './components/Camera';
+import SymptomsPage from './pages/SymptomsPage';
 import HistoryPage from './pages/HistoryPage';
 
 class App extends Component {
@@ -13,6 +13,7 @@ class App extends Component {
                 <Switch>
                     <Route path='/history' component={HistoryPage} />
                     <Route path='/new' component={BodyPage} />
+                    <Route path='/symptoms' component={SymptomsPage} />
                     <Route exact path='/' component={HomePage} />
                 </Switch>
             </MobileHackathon>

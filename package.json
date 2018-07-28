@@ -10,7 +10,9 @@
     "lodash": "^4.17.10",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-hot-loader": "^4.3.4",
     "react-qr-svg": "^2.1.0",
+    "react-rater": "^5.0.3",
     "react-router-dom": "^4.3.1",
     "react-scripts": "1.1.4",
     "react-spinners": "^0.3.3"

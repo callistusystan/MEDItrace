@@ -5,6 +5,7 @@ import LoadingView from '../components/react-mobile-hackathon/devices/LoadingVie
 import { PulseLoader } from 'react-spinners';
 import { Fade } from '@material-ui/core';
 import TopBar from '../components/TopBar';
+import { Link } from 'react-router-dom';
 import Card from '../components/Card';
 import Doctor from '../images/doctor.png';
 import Stethoscope from '../images/stethoscope.png';
