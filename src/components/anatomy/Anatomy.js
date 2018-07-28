@@ -6,6 +6,7 @@ import layer3 from "../../images/layer3.png"
 import layer4 from "../../images/layer4.png"
 import layer5 from "../../images/layer5.png"
 import layer6 from "../../images/layer6.png"
+import '../../styles/antd.css';
 import {Slider} from 'antd';
 import PainSpot from './PainSpot'
 
