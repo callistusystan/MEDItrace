@@ -5,9 +5,8 @@ import LoadingView from '../components/react-mobile-hackathon/devices/LoadingVie
 import { PulseLoader } from 'react-spinners';
 import { Fade } from '@material-ui/core';
 import TopBar from '../components/TopBar';
-import { Link } from 'react-router-dom';
 
-class HomePage extends Component {
+class BodyPage extends Component {
 
     state = {
         ready: false
@@ -30,9 +29,8 @@ class HomePage extends Component {
             <ScrollView style={{ padding: '4px 8px' }}>
                 <div style={{ height: '200%', display: 'flex', flexDirection: 'column' }}>
                     <Fade in={200}>
-                        <h2 style={{ color: '#555' }}>Welcome back, David</h2>
+                        <h2 style={{ color: '#555' }}>David's Sexy Body Page</h2>
                     </Fade>
-                    <Link to='/body'>Body Page</Link>
                     <div style={{ flex: 1 }} />
                     <h2 style={{ color: '#555' }}>You've reached the end!</h2>
                 </div>
@@ -70,4 +68,4 @@ const styles = {
     }
 };
 
-export default HomePage;
+export default BodyPage;
