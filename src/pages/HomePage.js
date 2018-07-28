@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import DeviceBar from '../components/react-mobile-hackathon/devices/DeviceBar';
 import ScrollView from '../components/react-mobile-hackathon/devices/ScrollView';
 import LoadingView from '../components/react-mobile-hackathon/devices/LoadingView';
-import { GridLoader } from 'react-spinners';
+import { PulseLoader } from 'react-spinners';
 import HeartBeat from '../images/heartbeat.png';
+import { Fade } from '@material-ui/core';
 
 class HomePage extends Component {
 
@@ -18,7 +19,7 @@ class HomePage extends Component {
     renderLoading = () => {
         return (
             <LoadingView>
-                <GridLoader color='rgb(255, 91, 91)' loading={!this.state.ready} />
+                <PulseLoader color='rgb(255, 91, 91)' loading={!this.state.ready} />
             </LoadingView>
         );
     };
@@ -27,7 +28,9 @@ class HomePage extends Component {
         return (
             <ScrollView style={{ padding: '4px 8px' }}>
                 <div style={{ height: '200%', display: 'flex', flexDirection: 'column' }}>
-                    <h2 style={{ color: '#555' }}>Welcome back, David</h2>
+                    <Fade in={200}>
+                        <h2 style={{ color: '#555' }}>Welcome back, David</h2>
+                    </Fade>
                     <div style={{ flex: 1 }} />
                     <h2 style={{ color: '#555' }}>You've reached the end!</h2>
                 </div>
