@@ -6,6 +6,8 @@ import { PulseLoader } from 'react-spinners';
 import HeartBeat from '../images/heartbeat.png';
 import { Fade } from '@material-ui/core';
 
+import { Camera } from '../components/CameraTest';
+
 class HomePage extends Component {
 
     state = {
@@ -56,6 +58,7 @@ class HomePage extends Component {
                         borderColor: '#DDD'
                     }}
                 />
+                <Camera/>
                 {this.state.ready ? this.renderBody() : this.renderLoading()}
                 <DeviceBar
                     title='Bottom Bar'
