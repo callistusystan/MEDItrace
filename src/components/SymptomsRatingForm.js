@@ -5,7 +5,6 @@ import { MyRater } from './MyRater';
 import { FormContent } from './FormContent';
 
 import {
-  Button,
   withStyles,
 } from '@material-ui/core';
 

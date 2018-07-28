@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Typography, withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core';
 
 export const FormContent = withStyles({
   container: {

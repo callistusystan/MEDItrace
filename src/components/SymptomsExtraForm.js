@@ -1,14 +1,23 @@
 import React, { Component } from 'react';
 
 import { FormControl, Input, InputLabel, Button, withStyles } from '@material-ui/core';
+import CameraAltIcon from '@material-ui/icons/CameraAlt';
 
-import { uploadImage } from '../utils/FirebaseHandler';
 import { SymptomsBottomSection } from './SymptomsBottomSection';
 import { FormContent } from './FormContent';
 
-export const SymptomsExtraForm = withStyles({
-
-})(class extends Component {
+export const SymptomsExtraForm = withStyles(theme => ({
+  leftIcon: {
+    marginRight: theme.spacing.unit
+  },
+  // Probably should have called this imagePreview or something
+  pic: {
+    objectFit: 'contain',
+    background: '#000',
+    objectPosition: 'center',
+    maxHeight: '384px'
+  }
+}))(class extends Component {
   constructor() {
     super();
     this.state = {
@@ -35,6 +44,20 @@ export const SymptomsExtraForm = withStyles({
     this.setState({
       imgFiles: e.target.files
     });
+    if (e.target.files.length > 0) {
+      console.log('Loading image for previewing');
+      const file = e.target.files[0];
+      const fr = new FileReader();
+      fr.onload = this.onPhotoFileLoad;
+      fr.readAsDataURL(file);
+    }
+  }
+
+  onPhotoFileLoad = (e) => {
+    console.log('Loaded image!');
+    this.setState({
+      imgSrc: e.target.result
+    });
   }
 
   render() {
@@ -48,12 +71,24 @@ export const SymptomsExtraForm = withStyles({
               onChange={this.onNotesChange}
               multiline
               value={this.state.notes}
-              rows={5}
+              rows={6}
             />
           </FormControl>
           <input 
             type="file"
-             name="pic" accept="image/*" onChange={this.onImagePathChange}/>
+            id="take-pic" accept="image/*" 
+            onChange={this.onImagePathChange}
+            style={{display: 'none'}}
+          />
+          {
+            this.state.imgSrc ? <img src={this.state.imgSrc} className={this.props.classes.pic}/> : null
+          }
+          <label htmlFor="take-pic">
+            <Button component="span">
+              <CameraAltIcon className={this.props.classes.leftIcon}/>
+              Add Photo
+            </Button>            
+          </label>
           <SymptomsBottomSection nextButtonText={'Submit'} onNext={this.onNext}/>
         </FormContent>
       </form>

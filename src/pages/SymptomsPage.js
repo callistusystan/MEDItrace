@@ -51,6 +51,7 @@ export default withStyles({
 
   componentDidMount() {
     console.log('Checking location state is present...');
+    // We need the pain point coordinates to get this component to work
     if (
       !(
         this.props.location &&
@@ -61,8 +62,9 @@ export default withStyles({
       )
     ) {
       console.log('Pain point data is not present. Redirecting to homepage');
-      // We need the pain point coordinates to get this component to work
       this.props.history.push('/');
+    } else {
+      this.painPointState = this.props.location.state;
     }
   }
 
@@ -74,6 +76,7 @@ export default withStyles({
   }
 
   onExtraPageNext = async (data) => {
+    console.log('Submitting pain point data...');
     let imgUrl = null;
     // TODO: hur hur, should be more than 1 img ref
     if(data.imgFiles.length > 0) {
@@ -85,16 +88,13 @@ export default withStyles({
 
     const dataRef = firebase.database().ref('/painSpots/Jul');
     const painPointRef = await dataRef.push();
-    const { x, y, layer } = this.props.location.state;
     await painPointRef.set({
+      ...this.painPointState,
       ratings: this.state.ratings,
       note: data.note,
-      imgUrl,
-      x,
-      y,
-      layer
+      imgUrl
     });
-    // TODO: Check if this is right
+    // TODO: Check if this is right, not really sure where to go
     return this.props.history.push('/new');
   }
 
