@@ -86,6 +86,8 @@ export default withStyles({
       imgUrl = await imgRef.getDownloadURL();
     }
 
+    console.log(imgUrl);
+
     const dataRef = firebase.database().ref('/painSpots/Jul');
     const painPointRef = await dataRef.push();
     await painPointRef.set({

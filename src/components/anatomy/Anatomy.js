@@ -9,6 +9,7 @@ import layer5 from "../../images/layer_5.png"
 import layer6 from "../../images/layer_6.png"
 import { Tooltip, Slider} from 'antd';
 import PainSpot from './PainSpot'
+import { Link } from 'react-router-dom';
 
 const layers = [layer0, layer1, layer2, layer3, layer4, layer5, layer6]
 const layerNames = ['Skin', 'Muscles', 'Bones', 'Lungs', 'Stomach', 'Heart & Arteries', 'Nerves', 'All']
@@ -166,8 +167,7 @@ class Anatomy extends React.Component {
                             const actualDisplacementX = x*bodyWidth - 15
                             const actualDisplacementY = y*bodyHeight - 15
                             return (
-                                <Tooltip title={painSpot.note || 'asdf'} text
-                                         style={{position: "absolute", top: actualDisplacementY, left: actualDisplacementX,zIndex:1}}>
+                                <Link to={{ pathname: '/painspot', state: { painSpot } }}>
                                     <PainSpot
                                         title={painSpot.note}
                                         key={`${x}${y}${layer}`}
@@ -178,7 +178,7 @@ class Anatomy extends React.Component {
                                             e.stopPropagation()
                                         }}
                                     />
-                                </Tooltip>
+                                </Link>
                             )
                         })}
 
