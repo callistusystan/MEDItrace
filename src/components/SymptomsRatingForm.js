@@ -4,10 +4,11 @@ import { SymptomsBottomSection } from './SymptomsBottomSection';
 import { MyRater } from './MyRater';
 import { FormContent } from './FormContent';
 
+import 
+    Fade
+ from '@material-ui/core/Fade';
 import {
-    Fade,
-    withStyles,
-} from '@material-ui/core';
+    withStyles} from '@material-ui/core/styles';
 
 const RatingControl = ({ id, children, rating, onRate, ...other }) => (
     <div>

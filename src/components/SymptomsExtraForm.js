@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 import Img from 'react-image';
 
-import { FormControl, Input, InputLabel, Button, withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
+import FormControl from '@material-ui/core/FormControl';
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
+
+
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
 
 import { SymptomsBottomSection } from './SymptomsBottomSection';
 import { FormContent } from './FormContent';
-import { Fade } from '@material-ui/core';
+import Fade from '@material-ui/core/Fade';
 import { GridLoader } from 'react-spinners';
 
 export const SymptomsExtraForm = withStyles(theme => ({
@@ -20,7 +26,7 @@ export const SymptomsExtraForm = withStyles(theme => ({
     objectPosition: 'center',
     maxHeight: '384px'
   }
-}))(class extends Component {
+}, { withTheme: true }))(class extends Component {
   constructor() {
     super();
     this.state = {
@@ -102,7 +108,7 @@ export const SymptomsExtraForm = withStyles(theme => ({
           </Fade>
           <Fade in timeout={800}>
             <div style={{ marginTop: 16 }}>
-          <SymptomsBottomSection nextButtonText={'Submit'} onNext={this.onNext}/>
+              <SymptomsBottomSection nextButtonText={'Submit'} onNext={this.onNext}/>
             </div>
           </Fade>
         </FormContent>
