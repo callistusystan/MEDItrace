@@ -95,7 +95,10 @@ export default withStyles({
       imgUrl
     });
     // TODO: Check if this is right, not really sure where to go
-    return this.props.history.push('/new');
+    return this.props.history.push({
+        pathname: '/history',
+        state: { month: 'Jul' }
+    });
   }
 
   render() {
