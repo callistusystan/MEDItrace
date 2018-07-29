@@ -8,6 +8,10 @@
     user-select:none;
 }
 
+#notes {
+    user-select: all;
+}
+
 @media only screen and (min-width: 600px) {
 
     .react-app-link-container {

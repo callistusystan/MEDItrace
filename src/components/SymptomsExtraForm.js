@@ -25,7 +25,10 @@ export const SymptomsExtraForm = withStyles(theme => ({
     background: '#000',
     objectPosition: 'center',
     maxHeight: '384px'
-  }
+  },
+    input: {
+      userSelect: 'auto'
+    }
 }, { withTheme: true }))(class extends Component {
   constructor() {
     super();
