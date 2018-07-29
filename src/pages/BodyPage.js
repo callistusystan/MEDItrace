@@ -15,7 +15,7 @@ class BodyPage extends Component {
     };
 
     componentDidMount() {
-        setTimeout(() => this.setState({ ready: true }), 20);
+        setTimeout(() => this.setState({ ready: true }), 500);
     }
 
     renderLoading = () => {

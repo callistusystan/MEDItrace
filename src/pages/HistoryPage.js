@@ -38,7 +38,7 @@ class HistoryPage extends Component {
 
 
     componentDidMount() {
-        setTimeout(() => this.setState({ ready: true }), 20);
+        setTimeout(() => this.setState({ ready: true }), 500);
 
         firebase.database().ref().on('value', ss => {
             console.log('ss', ss.val());
