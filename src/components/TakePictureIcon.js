@@ -10,7 +10,7 @@ export const TakePictureIcon = withStyles({
   disabled: {
     fill: 'rgba(220, 0, 220, 0.87)'
   }
-})(({ classes, disabled=false }) => {
+}, { withTheme: trueu })(({ classes, disabled=false }) => {
   const fillClass = classNames(disabled ? classes.disabled : classes.enabled);
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">

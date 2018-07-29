@@ -104,6 +104,6 @@ const StyledCamera = withStyles({
   takePicButton: {
     alginSelf: 'center'
   }
-})(Camera);
+}, { withTheme: true })(Camera);
 
 export { StyledCamera as Camera };

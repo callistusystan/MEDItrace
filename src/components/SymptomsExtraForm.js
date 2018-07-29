@@ -18,7 +18,7 @@ export const SymptomsExtraForm = withStyles(theme => ({
     objectPosition: 'center',
     maxHeight: '384px'
   }
-}))(class extends Component {
+}, { withTheme: true }))(class extends Component {
   constructor() {
     super();
     this.state = {
@@ -100,7 +100,7 @@ export const SymptomsExtraForm = withStyles(theme => ({
           </Fade>
           <Fade in timeout={800}>
             <div>
-          <SymptomsBottomSection nextButtonText={'Submit'} onNext={this.onNext}/>
+              <SymptomsBottomSection nextButtonText={'Submit'} onNext={this.onNext}/>
             </div>
           </Fade>
         </FormContent>

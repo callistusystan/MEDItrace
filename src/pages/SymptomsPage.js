@@ -33,7 +33,7 @@ export default withStyles({
     flexGrow: 0,
     flexShrink: 0
   }
-})(class SymptomsPage extends Component { 
+}, { withTheme: true })(class SymptomsPage extends Component { 
   constructor() {
     super();
     this.state = {
