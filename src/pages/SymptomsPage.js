@@ -86,6 +86,8 @@ export default withStyles({
       imgUrl = await imgRef.getDownloadURL();
     }
 
+    console.log(imgUrl);
+
     const dataRef = firebase.database().ref('/painSpots/Jul');
     const painPointRef = await dataRef.push();
     await painPointRef.set({
@@ -95,7 +97,10 @@ export default withStyles({
       imgUrl
     });
     // TODO: Check if this is right, not really sure where to go
-    return this.props.history.push('/new');
+    return this.props.history.push({
+        pathname: '/history',
+        state: { month: 'Jul' }
+    });
   }
 
   render() {

@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { withStyles } from '@material-ui/core';
+import { Fade, withStyles } from '@material-ui/core';
 
 export const FormContent = withStyles({
   container: {
@@ -9,7 +8,9 @@ export const FormContent = withStyles({
   }
 })(({ children, title, classes }) => (
   <div className={classes.container}>
+    <Fade in timeout={200}>
     <h2 style={{ marginTop: 8, fontWeight: 700 }}>{ title }</h2>
+    </Fade>
     { children }
   </div>
 ))

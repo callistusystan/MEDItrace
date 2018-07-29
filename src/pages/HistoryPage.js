@@ -21,11 +21,19 @@ class HistoryPage extends Component {
     constructor(props) {
         super(props);
 
+        console.log('history', this.props.location);
+
         this.state = {
             ready: false,
             month: 'Apr',
+            monthIndex: 0,
             painSpots: { Jul: [] }
         };
+
+        if (this.props.location.state && this.props.location.state.month) {
+            this.state.month = 'Jul';
+            this.state.monthIndex = 3;
+        }
     }
 
 
@@ -52,10 +60,11 @@ class HistoryPage extends Component {
             <Slider marks={{ 0: 'Apr', 1: '', 2: '', 3: 'Jul' }}
                     min={0}
                     max={3}
-                    default={0}
+                    value={this.state.monthIndex}
+                    defaultValue={this.state.monthIndex}
                     tipFormatter={i => marks[i]}
                     onChange={i => {
-                        this.setState({ month: marks[i] })
+                        this.setState({ month: marks[i], monthIndex: i })
                     }}
                     style={{ minWidth: 180, width: 180 }}
             />

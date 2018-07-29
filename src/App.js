@@ -5,7 +5,10 @@ import HomePage from './pages/HomePage';
 import BodyPage from './pages/BodyPage';
 import SymptomsPage from './pages/SymptomsPage';
 import HistoryPage from './pages/HistoryPage';
+import ErrorPage from './pages/ErrorPage';
+import PainspotPage from './pages/PainspotPage';
 import AnalyticsPage from './pages/AnalyticsPage';
+
 
 class App extends Component {
     render() {
@@ -13,10 +16,12 @@ class App extends Component {
             <MobileHackathon>
                 <Switch>
                     <Route path='/history' component={HistoryPage} />
+                    <Route path='/painspot' component={PainspotPage} />
                     <Route path='/new' component={BodyPage} />
                     <Route path='/symptoms' component={SymptomsPage} />
                     <Route path='/analytics' component={AnalyticsPage} />
                     <Route exact path='/' component={HomePage} />
+                    <Route path='/' component={ErrorPage} />
                 </Switch>
             </MobileHackathon>
         );
