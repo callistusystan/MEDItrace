@@ -54,7 +54,7 @@ class HomePage extends Component {
                     </Fade>
                     <Fade in timeout={1000}>
                         <div>
-                            <Card to='/doctor' img={AnalyticsIcon} style={{ backgroundColor: '#e67e22', marginTop: 16 }}>
+                            <Card to='/analytics' img={AnalyticsIcon} style={{ backgroundColor: '#e67e22', marginTop: 16 }}>
                                 Analytics
                             </Card>
                         </div>
