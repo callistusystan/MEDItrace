@@ -41,7 +41,7 @@ class MobileHackathon extends Component {
                     <div style={{display:"flex",justifyContent:"center"}}>
                         <div><img src={QRCode} style={{width:400,height:400}}/></div>
                     </div>
-                    <a href={this.props.url || 'http://localhost:3000/'} style={{ fontSize: 18, letterSpacing: 2, color: '#007BFF', marginTop: 8, alignSelf: 'center' }}>{this.props.displayUrl || 'mediocre-unihack.firebaseapp.com'}</a>
+                    <a href={this.props.url || 'https://mediocre-unihack.firebaseapp.com'} style={{ fontSize: 18, letterSpacing: 2, color: '#007BFF', marginTop: 8, alignSelf: 'center' }}>{this.props.displayUrl || 'mediocre-unihack.firebaseapp.com'}</a>
                 </div>
             </div>
         );
