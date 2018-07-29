@@ -9,9 +9,8 @@ import Anatomy from "../components/anatomy/Anatomy"
 import BottomBar from '../components/BottomBar';
 import {Slider} from 'antd';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend} from "recharts"
-import ListItem from "@material-ui/core/es/ListItem/ListItem";
-import List from "@material-ui/core/es/List/List";
-import ListItemIcon from "@material-ui/core/es/ListItemIcon"
+import ListItem from "@material-ui/core/ListItem/ListItem";
+import List from "@material-ui/core/List/List";
 import HRIcon from "../images/cardiogram.svg"
 import WDIcon from "../images/water.svg"
 import STIcon from "../images/bed.svg"
@@ -129,7 +128,7 @@ class AnalyticsPage extends Component {
                             </ListItem>
                     </List>
                     <Card to='/analytics' img={LineIcon} style={{ backgroundColor: '#3498db', marginTop: 16, marginBottom:20 }}>
-                        Num Records over Past Months
+                        Number of Records over Past Months
                     </Card>
                     <LineChart width={300} height={200} data={painSpotsToData(this.state.painSpots)}>
                         <XAxis dataKey="key"/>
@@ -140,7 +139,7 @@ class AnalyticsPage extends Component {
                         <Line type="monotone" dataKey={"Num Records"} stroke="#8884d8"/>
                     </LineChart>
                     <Card to='/analytics' img={DietIcon} style={{ backgroundColor: '#9b59b6', marginTop: 16,  }}>
-                        Num Records over Past Months
+                        Food Consumption over Past Months
                     </Card>
                     <List>
                         {fitbitFoodToData(this.state.fitbit).map(food => {

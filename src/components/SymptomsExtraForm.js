@@ -36,6 +36,7 @@ export const SymptomsExtraForm = withStyles(theme => ({
   }
 
   onNotesChange = (e) => {
+    console.log('note', e.target.value)
     this.setState({
       note: e.target.value
     });
@@ -80,9 +81,9 @@ export const SymptomsExtraForm = withStyles(theme => ({
             <Input
               id="notes"
               onChange={this.onNotesChange}
-              multiline
+
               fullWidth
-              value={this.state.notes}
+              value={this.state.note}
             />
           </FormControl>
             </div>
