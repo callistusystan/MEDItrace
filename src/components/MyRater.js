@@ -105,7 +105,7 @@ export class MyRater extends Component {
   render() {
     return (
       <div>
-        <Rater total={3} rating={this.props.rating} onRate={this.props.onRate}>
+        <Rater total={3} rating={this.props.rating} onRate={this.props.onRate} interactive={this.props.interactive}>
           <Smile />
           <Normal />
           <Angry />

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Img from 'react-image';
 
 import { FormControl, Input, InputLabel, Button, withStyles } from '@material-ui/core';
 import CameraAltIcon from '@material-ui/icons/CameraAlt';
@@ -6,6 +7,7 @@ import CameraAltIcon from '@material-ui/icons/CameraAlt';
 import { SymptomsBottomSection } from './SymptomsBottomSection';
 import { FormContent } from './FormContent';
 import { Fade } from '@material-ui/core';
+import { GridLoader } from 'react-spinners';
 
 export const SymptomsExtraForm = withStyles(theme => ({
   leftIcon: {
@@ -88,7 +90,7 @@ export const SymptomsExtraForm = withStyles(theme => ({
             style={{display: 'none'}}
           />
           {
-            this.state.imgSrc ? <img src={this.state.imgSrc} className={this.props.classes.pic}/> : null
+            this.state.imgSrc ? <Img src={this.state.imgSrc} loader={<div style={{ display : 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: 260 }}><GridLoader color='rgb(255, 91, 91)'  /></div>} className={this.props.classes.pic} style={{ width: '100%', height: 'auto' }}/> : null
           }
           <label htmlFor="take-pic">
             <Button component="span">
@@ -99,7 +101,7 @@ export const SymptomsExtraForm = withStyles(theme => ({
             </div>
           </Fade>
           <Fade in timeout={800}>
-            <div>
+            <div style={{ marginTop: 16 }}>
           <SymptomsBottomSection nextButtonText={'Submit'} onNext={this.onNext}/>
             </div>
           </Fade>
