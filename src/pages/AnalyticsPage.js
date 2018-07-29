@@ -3,7 +3,7 @@ import firebase from 'firebase';
 import ScrollView from '../components/react-mobile-hackathon/devices/ScrollView';
 import LoadingView from '../components/react-mobile-hackathon/devices/LoadingView';
 import {PulseLoader} from 'react-spinners';
-import {Fade} from '@material-ui/core';
+import Fade from '@material-ui/core/Fade';
 import TopBar from '../components/TopBar';
 import Anatomy from "../components/anatomy/Anatomy"
 import BottomBar from '../components/BottomBar';

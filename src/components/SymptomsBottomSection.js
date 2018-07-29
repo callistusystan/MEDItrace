@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { withStyles, Button } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 // TODO: Could probably think of a better name
 export const SymptomsBottomSection = withStyles({
@@ -8,8 +9,8 @@ export const SymptomsBottomSection = withStyles({
     display: 'flex',
     justifyContent: 'flex-end'
   },
-})(({ nextButtonText = 'Next', classes, onNext }) => (
+}, { withTheme: true })(({ nextButtonText = 'Next', classes, onNext }) => (
   <div className={classes.bottomSection}>
-    <Button onClick={onNext}>{nextButtonText}</Button>
+    <Button color="primary" onClick={onNext}>{nextButtonText}</Button>
   </div>
 ));

@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import firebase from 'firebase';
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 import uuid from 'uuid';
 
 import BottomBar from '../components/BottomBar';
@@ -33,7 +33,7 @@ export default withStyles({
     flexGrow: 0,
     flexShrink: 0
   }
-})(class SymptomsPage extends Component { 
+}, { withTheme: true })(class SymptomsPage extends Component { 
   constructor() {
     super();
     this.state = {
