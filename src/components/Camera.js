@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import { TakePictureIcon } from './TakePictureIcon';
 
-import { withStyles } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
 
 class Camera extends Component { 
   constructor() {

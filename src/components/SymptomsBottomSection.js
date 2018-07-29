@@ -1,6 +1,7 @@
 import React from 'react';
 
-import { withStyles, Button } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import Button from '@material-ui/core/Button';
 
 // TODO: Could probably think of a better name
 export const SymptomsBottomSection = withStyles({
