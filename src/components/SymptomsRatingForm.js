@@ -7,8 +7,8 @@ import { FormContent } from './FormContent';
 import 
     Fade
  from '@material-ui/core/Fade';
-import {
-    withStyles} from '@material-ui/core/styles';
+import 
+    withStyles from '@material-ui/core/styles/withStyles';
 
 const RatingControl = ({ id, children, rating, onRate, ...other }) => (
     <div>

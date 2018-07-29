@@ -1,5 +1,5 @@
 import React from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@material-ui/core/styles/withStyles';
 import Fade from '@material-ui/core/Fade';
 
 export const FormContent = withStyles({

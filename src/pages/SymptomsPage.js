@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
 
 import firebase from 'firebase';
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@material-ui/core/styles/withStyles';
 import uuid from 'uuid';
 
 import BottomBar from '../components/BottomBar';
