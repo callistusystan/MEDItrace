@@ -8,6 +8,7 @@ import HistoryPage from './pages/HistoryPage';
 import ErrorPage from './pages/ErrorPage';
 import PainspotPage from './pages/PainspotPage';
 import AnalyticsPage from './pages/AnalyticsPage';
+import DoctorPage from './pages/DoctorPage';
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
                     <Route path='/new' component={BodyPage} />
                     <Route path='/symptoms' component={SymptomsPage} />
                     <Route path='/analytics' component={AnalyticsPage} />
+                    <Route path='/doctor' component={DoctorPage} />
                     <Route exact path='/' component={HomePage} />
                     <Route path='/' component={ErrorPage} />
                 </Switch>
