@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { withStyles } from '@material-ui/core/styles';
+import withStyles from '@material-ui/core/styles/withStyles';
 import Button from '@material-ui/core/Button';
 
 // TODO: Could probably think of a better name

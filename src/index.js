@@ -2,7 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import createMuiTheme from '@material-ui/core/styles/createMuiTheme';
+import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 
 import registerServiceWorker from './RegisterServiceWorker';
 import Root from './Root';
