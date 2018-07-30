@@ -34,15 +34,19 @@ Feel free to try out our [app hosted on firebase](http://fb-hack-2018.firebaseap
 
 ## Screenshots
 
-<div style="display: flex;">
+<div>
   <img src="/screenshots/screenshot1.png" width="50%">
   <img src="/screenshots/screenshot2.png" width="50%">
 </div>
-<img src="/screenshots/screenshot3.png" width="100%">
-<img src="/screenshots/screenshot4.png" width="100%">
-<img src="/screenshots/screenshot5.png" width="100%">
-<img src="/screenshots/screenshot6.png" width="100%">
-<img src="/screenshots/screenshot7.png" width="100%">
+<div>
+<img src="/screenshots/screenshot3.png" width="50%">
+<img src="/screenshots/screenshot4.png" width="50%">
+</div>
+<div>
+<img src="/screenshots/screenshot5.png" width="50%">
+<img src="/screenshots/screenshot6.png" width="50%">
+</div>
+<img src="/screenshots/screenshot7.png" width="50%">
 
 
 ### Usage ###
