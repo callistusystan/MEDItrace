@@ -21,7 +21,7 @@ To find out more, view our [devpost article](https://devpost.com/software/meditr
 
 ## Demo
 
-Feel free to try out our [app hosted on firebase](http://fb-hack-2018.firebaseapp.com/app/abc123) :fire:
+Feel free to try out our [app hosted on firebase](https://mediocre-unihack.firebaseapp.com/) :fire:
 
 
 ## Development Team
